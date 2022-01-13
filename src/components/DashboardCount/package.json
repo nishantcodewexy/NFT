@@ -1,0 +1,6 @@
+{
+    "name": "DashboardCount",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./DashboardCount.js"
+}

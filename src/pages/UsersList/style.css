@@ -1,0 +1,129 @@
+.select-box {
+  color: #000;
+  font-weight: 700;
+  text-align: right;
+}
+
+.statusWrap_1 .statusData.select-box {
+  text-align: center;
+  display: flex;
+  max-width: initial;
+}
+.MuiFormControl-root.cm_select_box{
+  min-width: 150px;
+}
+.statusData .cm_select_box_2 {
+  min-width: 190px;
+  margin: 0 8px;
+}
+.statusWrap_1 .statusData1{
+  max-width: 375px;
+}
+.statusWrap_1 .statusData1{
+  display: flex;
+}
+.statusWrap_1 .statusData2{
+  padding: 0px !important;
+}
+.cm_select_box_2{
+  text-align: left;
+}
+.registrationdate_2{
+  margin-right: 15px;
+}
+.editBtn {
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgb(83, 118, 255);
+  border-radius: 4px;
+  font-weight: 500;
+  color: rgb(83, 118, 255);
+  font-size: 14px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.editBtn:focus{
+  outline: none;
+}
+.MuiPaginationItem-page.Mui-selected{
+  background-color: #C4C4C4 !important;
+  color: #fff !important;
+  
+}
+.MuiPaginationItem-root{
+  width: 30px !important;
+  height: 25px !important;
+  color: #A9ABB0 !important;
+  font-weight: 500;
+}
+.first_end_btn{
+  background-color: #fff !important;
+  border-radius: 4px !important;
+  border: 1px solid #C4C4C4 !important;
+  color: #A9ABB0 !important;
+}
+.MuiPaginationItem-root:focus,
+.first_end_btn:focus{
+  outline: none !important;
+}
+.MuiPagination-ul li button{
+  margin: 0 7.5px;
+}
+
+@media screen and (max-width: 1080px) {
+  .statusWrap_1 .statusData1{
+    min-width: 100%;
+  }
+  .statusWrap_1 .registrationdate {
+    min-width: 178px;
+  }
+}
+@media screen and (max-width: 959px) {
+  .statusWrap_1 .statusData1{
+    padding: 0px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .MuiFormControl-root.cm_select_box{
+    margin-left: 0px;
+  }
+  .statusWrap_1 .statusData > div:first-child{
+    margin-right: unset;
+  }
+  .statusWrap_1 .statusData.select-box{
+    flex-wrap: wrap;
+  }
+  .statusWrap_1 .statusData{
+    margin: 0 !important;
+  }
+  .statusWrap_1 .statusData .cm_select_box_2{
+    margin: 5px 0;
+    margin-right: 10px !important;
+  }
+  .statusWrap_1 .statusData .cm_select_box_2 + .cm_select_box_2{
+    margin-left: 0px;
+  }
+  .cm_select_box{
+    width: 190px;
+  }
+  .MuiFormControl-root.cm_select_box {
+      max-width: 190px;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .statusWrap .statusData.select-box {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 575px) {
+  .statusWrap_1 .statusData1{
+    flex-wrap: wrap;
+  }
+  .statusWrap_1 .statusData1 .cm_select_box{
+    margin-bottom: 10px;
+  }
+}

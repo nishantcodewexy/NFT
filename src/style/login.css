@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+.text-fields{
+  background-color: red;
+}
+
+.heading-text {
+  font-size: 70px;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.top-hr {
+  width: 10%;
+  height: 5px !important;
+  border: none;
+  background: linear-gradient(90.04deg, #32defa 0.03%, #cd74ff 100%);
+}
+
+.sub-heading-text {
+  color: #000;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  text-align: center;
+  margin: 0px 0 38px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.login-form {
+  max-width: 700px;
+  height: auto;
+  border-radius: 10px;
+  padding: 100px;
+  background-color: #fff;
+}
+
+.lables {
+  color: #183b56;
+  font-weight: 700;
+  font-size: 23px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.text-fields {
+  border-style: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+.forgot-password a {
+  text-decoration: none;
+  color: #34d8fa;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  border-style: none;
+  border-radius: 8px;
+  height: 50px;
+}
+
+button.submit {
+  background: #5376ff;
+  color: #fff;
+  text-transform: uppercase;
+  outline: none;
+  margin-top: 15px;
+}
+
+.middle {
+  background-color: #5376ff;
+  transform: skewY(1deg);
+  height: 40px;
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  content: "";
+  z-index: -3;
+}
+
+.agreement label {
+  padding-left: 2%;
+}
+
+.middle-reg {
+  background-color: #5376ff;
+  transform: skewY(1deg);
+  height: 40px;
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  content: "";
+  z-index: -3;
+}
+
+.forgot-top {
+  width: 100%;
+  background: linear-gradient(277.39deg, #5376ff -4.51%, #32defa 95.99%);
+  height: 400px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.forgot-top h1 {
+  font-weight: 600;
+  font-size: 50px !important;
+}
+
+.forgot-top p {
+  font-size: 18px !important;
+}
+
+.forgot-top::after {
+  background-color: #183b56;
+  transform: skewY(-2deg);
+  height: 200px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  content: "";
+  z-index: -2;
+  bottom: -120px;
+}
+
+.forgot-form {
+  padding: 0.5% 0.5% 0.5% 2%;
+  width: 50%;
+  margin: 2% 0;
+}
+
+.forgot-form .topic {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #183b56;
+}
+
+.pagination-item {
+  padding: 0.5%;
+  border: 1px solid #000;
+  margin: 0 0.25%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-item-active {
+  background-color: #000;
+  padding: 0.5%;
+  margin: 0 0.25%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.excel-download-button {
+  border: 1px solid #5376ff;
+  color: #5376ff;
+  background-color: #fff;
+  outline: none;
+}
+
+.login-form input {
+  border: 3px solid #a9abb0;
+  min-height: 70px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.login-form input::placeholder{
+  color: #A9ABB0;
+  background-color: #fff;
+  -webkit-appearance: none;
+}
+.login-form input:-webkit-autofill,
+.login-form input:-webkit-autofill:hover, 
+.login-form input:-webkit-autofill:focus, 
+.login-form input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 100px white inset !important;
+}
+
+@media only screen and (max-width: 1680px){
+  .login-form{
+    padding: 50px;
+  }
+  .heading-text{
+    font-size: 60px;
+  }
+  .sub-heading-text{
+    font-size: 30px;
+    margin: 0 0 30px;
+  }
+  .lables{
+    font-size: 20px;
+  }
+  .login-form input{
+    min-height: 60px;
+  }
+  button.submit{
+    margin-top: 0px;
+  }
+  .login-form{
+    max-width: 600px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .heading-text {
+    font-size: 50px;
+  }
+  .sub-heading-text{
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .login-form {
+    max-width: 400px;
+    padding: 35px;
+  }
+  .sub-heading-text{
+    margin-bottom: 25px;
+  }
+  .login-form .MuiBox-root-7 {
+    margin-top: 30px;
+  }
+  .login-form input {
+    min-height: 50px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .login-form {
+    padding: 25px;
+  }
+  .login-form input {
+    border: 2px solid #a9abb0;
+  }
+  .lables {
+    font-size: 18px;
+  }
+  .sub-heading-text {
+    font-size: 24px;
+  }
+  .heading-text {
+    font-size: 44px;
+  }
+  .login-form input {
+    font-size: 16px;
+  }
+}

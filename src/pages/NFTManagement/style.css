@@ -1,0 +1,123 @@
+.excel-download-button{
+    padding: 10px 15px;
+    margin: 5px 15px;
+}
+.nftsetting .MuiTypography-body1{
+    white-space: nowrap;
+}
+.nftsetting_save_btn{
+    display: flex;
+}
+.nftsetting_save_btn button + button{
+    margin-left: 15px;
+}
+.nftsetting .MuiOutlinedInput-input{
+    font-weight: bold;
+}
+.nftsetting .MuiOutlinedInput-input::placeholder{
+    color: #A9ABB0;
+}
+.nft_mangment_wrapper .registrationdate_2{
+    padding: 0px !important;
+}
+.nft_mangment_wrapper .statusData{
+    max-width: initial;
+}
+.nft_mangment_wrapper .cm_select_box + .cm_select_box{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.cm_pagination ul {
+    margin: 0;
+}
+.page-link{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A9ABB0;
+    font-weight: 500;
+    border: 1px solid #A9ABB0;
+    border-radius: 4px;
+}
+.pagination .page-link:first-child,
+.pagination .page-link:last-child{
+    padding: 5px 15px;
+}
+.pagination .page-item{
+    margin: 0 7.5px;
+}
+.page-link:hover{
+    color: #A9ABB0;
+    background-color: fff;
+    border: 1px solid #A9ABB0;
+}
+.work_history table tr th,
+.work_history table tr td{
+    width: 16.67%;
+}
+.work_history .makeStyles-table-93{
+    width: 100%;
+}
+
+@media only screen and (max-width: 1440px) {
+    .nft_mangment_wrapper .statusData{
+        min-width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .statusWrap{
+        flex-wrap: wrap;
+    }
+    .nft_mangment_wrapper .cm_select_box + .cm_select_box {
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .nft_mangment_wrapper .statusData{
+        justify-content: flex-start;
+    }
+    .nft_mangment_wrapper .statusData .cm_select_box + .cm_select_box{
+        margin-left: 10px;
+    }
+    .nft_mangment_wrapper .registrationdate > div.MuiFormControl-root{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .nft_mangment_wrapper .registrationdate > div.MuiFormControl-root{
+        width: 100%;
+    }
+    .nft_mangment_wrapper .registrationminus{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .ip_list{
+        font-size: 16px !important;
+    }
+    .nftsetting button,
+    .nftsetting [type="reset"], 
+    .nftsetting [type="submit"]{
+        max-width: 75px !important;
+    }
+    .nft_mangment_wrapper .statusData .cm_select_box + .cm_select_box{
+        margin-left: unset;
+    }
+    .registrationdate_2 {
+        margin-right: 0px;
+    }
+    .nft_mangment_wrapper .statusData .cm_select_box + .cm_select_box{
+        margin-top: 10px;
+    }
+    .cm_select_box,
+    .statusData,
+    .cm_select_box > div.MuiFormControl-root,
+    .statusData  > div.MuiFormControl-root,
+    .statusData1 .MuiFormControl-root{
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+}

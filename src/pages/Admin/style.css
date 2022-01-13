@@ -1,0 +1,280 @@
+.title {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.add-button {
+  display: flex;
+  margin: 15px 0;
+}
+ul, li{
+  padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+table.MuiTable-root tr th,
+table.MuiTable-root tr td{
+  white-space: nowrap;
+}
+.MuiPaper-root::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+.MuiPaper-root::-webkit-scrollbar {
+  height: 5px;
+}
+.MuiPaper-root::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+.registrationData{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 15px;
+}
+.registrationdate{
+  max-width: 215px;
+  padding: 0px !important;
+}
+.registrationminus{
+  max-width: 55px;
+  padding: 0px !important;
+}
+.registrationtitle {
+    max-width: 135px;
+}
+.statusData{
+  max-width: 330px;
+}
+.statusData1{
+  max-width: 245px;
+}
+.statusData2{
+  max-width: 105px;
+}
+.statusWrap{
+  justify-content: flex-end;
+  padding: 0 15px;
+}
+.registrationdate .MuiOutlinedInput-root{
+  border-radius: 4px 0 0 4px;
+}
+.registrationdate.registrationdate2 .MuiOutlinedInput-root{
+  border-radius: 0 4px 4px 0;
+}
+.makeStyles-button-55{
+  border-radius: 5px;
+}
+.statusData1,
+.statusData2{
+  padding: 0px !important;
+}
+.statusData2 .makeStyles-button-55{
+  margin: 0px;
+  height: 56px;
+}
+.MuiTableContainer-root{
+  border: 1px solid #A9ABB0;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(1){
+  width: 30%;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(2){
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3){
+  width: 60%;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(1) .makeStyles-list-100{
+  max-width: 100%;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .makeStyles-list2-101{
+  max-width: 100%;
+}
+.MuiGrid-align-items-xs-center.admin_grid{
+  align-items: unset;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiFormControlLabel-root{
+  margin-bottom: 0px;
+}
+.admin_edit .MuiPaper-elevation1{
+  height: 100%;
+}
+.admin_edit .MuiButton-outlined.Mui-disabled {
+  border: 1px solid rgb(83 118 255);
+  color: rgb(83 118 255);
+  font-size: 32px;
+  font-weight: 300;
+}
+.makeStyles-content-3  .MuiFormHelperText-contained{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.admin_edit .MuiTypography-body1{
+  white-space: nowrap;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .my-2{
+  padding: 15px !important;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .my-2.d-flex{
+  padding: 10px !important;
+  min-height: 60.02px;
+  display: flex;
+  align-items: center;
+}
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiListItem-root{
+  align-items: unset;
+}
+.message_red {
+  margin-top: 30px;
+  color: red;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.statusData1 .MuiFormControl-root.MuiTextField-root{
+  width: 100%;
+}
+
+@media screen and (max-width:1680px){
+  .admin_edit .PrivateSwitchBase-root-91 {
+    padding: 5px;
+  }
+  .admin_edit .MuiListItemIcon-root{
+    min-width: 35px;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiButton-containedPrimary{
+    width: 80px !important;
+  }
+}
+@media screen and (max-width:1440px){
+  .statusData1{
+    max-width: 210px;
+  }
+  .admin_edit{
+    margin: 0px !important;
+  }
+  .admin_edit .MuiFormControl-root{
+    width: 100% !important;
+  }
+  .admin_edit .react-tel-input .form-control{
+    width: 100%;
+  }
+}
+@media screen and (max-width:1199px){
+  .registrationdate {
+    min-width: 203px;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(1),
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(2),
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3){
+    width: 100%;
+  }
+  .admin_edit .MuiButton-outlined.Mui-disabled{
+    width: 100px;
+  }
+  .statusData .MuiFormControl-fullWidth {
+    width: 50% !important;
+  }
+  .statusData {
+    max-width: 290px;
+  }
+}
+@media screen and (max-device-width:1080px){
+  .registrationData,
+  .statusWrap{
+    justify-content: flex-start;
+  }
+  .registrationdate {
+    min-width: 185px;
+  }
+  .registrationtitle {
+    max-width: 100%;
+  }
+  .statusData1,
+  .statusData{
+    max-width: 50%;
+  }
+  .statusData2{
+    padding: 0 15px !important;
+    margin-top: 10px;
+    max-width: 125px;
+  }
+  .statusWrap{
+    padding: 0px;
+  }
+  .statusWrap.statusWrap_1{
+    padding: 0 15px;
+  }
+  .statusWrap_1 .MuiFormControl-root.cm_select_box{
+    margin-left: 0px;
+  }
+  .statusData .cm_select_box_2{
+    margin: 0;
+  }
+  .statusData .cm_select_box_2 + .cm_select_box_2{
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width:959px){
+  .statusData1,
+  .statusData2{
+    padding: 0px 15px !important;
+  }
+  .admin_edit .MuiFormLabel-root{
+    margin-top: 12px;
+  }
+}
+@media screen and (max-width:767px){
+  .statusData{
+    max-width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  .statusData > div:first-child{
+    margin-right: 15px;
+  }
+  .statusData1 .MuiFormControl-root{
+    width: 100%;
+  }
+  .registrationdate,
+  .registrationminus{
+    max-width: 100%;
+  }
+  .registrationdate .MuiOutlinedInput-root,
+  .registrationdate.registrationdate2 .MuiOutlinedInput-root{
+    border-radius: 4px;
+  }
+  .message_red{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width:575px){
+  .statusData1 {
+    max-width: 100%;
+  }
+  .statusData1{
+    margin-bottom: 10px;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .my-2.d-flex{
+    min-width: 100%;
+    padding: 5px 10px !important;
+    min-height: 50.02px;
+  }
+  .admin_edit .MuiButton-outlined.Mui-disabled {
+    width: 80px;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiListItem-root{
+    flex-wrap: wrap;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .my-2{
+    padding: 10px !important;
+  }
+  .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiButton-containedPrimary {
+    width: 70px !important;
+  }
+}
