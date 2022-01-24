@@ -1,44 +1,25 @@
 // import package
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-import { Checkbox, FormControlLabel, InputLabel } from "@material-ui/core";
+import { FormControlLabel } from "@material-ui/core";
 import {
   CheckBoxOutlineBlank as CheckBoxOutlineBlankIcon,
   CheckBox as CheckBoxIcon
 } from "@material-ui/icons";
 
-// import InputLabel from "@material-ui/core/InputLabel";
 // core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
-
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputAdornment from "@material-ui/core/InputAdornment";
-
-import CheckboxesTags from "./test";
-
-//import avatar from "assets/img/faces/marc.jpg";
-import isEmpty from "../../lib/isEmpty";
+import Button from "components/CustomButtons/Button.js"
 
 // import action
 import { addNewAdmin } from "../../actions/admin";
 
 // import lib
-import routes from "../../routes";
 import { toastAlert } from "../../lib/toastAlert";
 
 import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
@@ -46,10 +27,6 @@ import "react-phone-input-2/lib/material.css";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-
-import axios from "axios";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -135,7 +112,7 @@ const AdminAdd = (props) => {
               id="filled-select-currency"
               placeholder="아이디를 입력해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               name="email"
               required
               onChange={handleChange}
@@ -148,7 +125,7 @@ const AdminAdd = (props) => {
               id="filled-select-currency"
               placeholder="이름을 입력해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               name="name"
               required
               onChange={handleChange}
@@ -182,7 +159,7 @@ const AdminAdd = (props) => {
               id="filled-select-currency"
               placeholder="영업부"
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               name="department"
               onChange={handleChange}
               style={{ width: "300px" }}
@@ -193,7 +170,7 @@ const AdminAdd = (props) => {
             <TextField
               id="filled-select-currency"
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               type="password"
               name="password"
               onChange={handleChange}
@@ -205,7 +182,7 @@ const AdminAdd = (props) => {
             <TextField
               id="filled-select-currency"
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               type="password"
               name="confirm_password"
               onChange={handleChange}

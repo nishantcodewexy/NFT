@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,8 +12,6 @@ import CardBody from "components/Card/CardBody.js";
 // import action
 import { getTradeHistory } from './../../actions/report';
 
-// import 
-import { toastAlert } from '../../lib/toastAlert'
 
 
 const styles = {

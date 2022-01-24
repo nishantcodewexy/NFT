@@ -11,10 +11,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import Pagination from "components/Paginations/Pagination";
 import {
   getAllQuestions,
-  addNewQuestion,
   getAQuestion,
   sendEmail
 } from "actions/questions.action";
@@ -22,10 +20,13 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 
 import Pagination2 from "components/Paginations/Pagination2";
+
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -111,54 +112,60 @@ export default function QuestionList() {
   };
   return (
     <div>
-      <div className="mx-3 mx-md-5">
-        <div style={{ fontWeight: "700", fontSize: "40px" }}>
+      <div className="mx-3 mx-md-5 noticeList_wrap">
+        <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>
           일대일 문의 목록
         </div>
 
-        <div
-          className="align-items-center"
-          style={{ fontWeight: "700", display: "flex" }}
-        >
-          <div style={{ flex: "7", margin: "0 10px" }}></div>
-          <div style={{ margin: "0 10px", color: "#000", fontWeight: "700" }}>
+        <div className="align-items-center row registrationData" style={{ fontWeight: "700" }}>
+          <div></div>
+          <div
+            className="col-sm-12 registrationtitle my-2"
+            style={{ color: "#000", fontWeight: "700" }}
+          >
             등록일 기간 검색
           </div>
-          <div style={{ margin: "0 0 0 10px" }}>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
-              label="시작일"
+              type="text"
               name="from"
               onChange={handleChange}
+              placeholder="시작일"
               className={classes.textField}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               InputLabelProps={{
                 shrink: true
               }}
             />
           </div>
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{
-              backgroundColor: "#A9ABB0",
-              width: "55px",
-              height: "55px",
-              color: "white",
-              borderRadius: "3px",
-              textAlign: "center"
-            }}
-          >
-            ~
+
+          <div className="col-sm-12 col-lg-1 my-2 registrationminus">
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{
+                backgroundColor: "#A9ABB0",
+                width: "55px",
+                height: "55px",
+                borderRadius: "3px",
+                textAlign: "center"
+              }}
+            >
+              ~
+            </div>
           </div>
-          <div>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate registrationdate_2">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
+              type="text"
+              placeholder="종료일"
               name="to"
               onChange={handleChange}
-              label="종료일"
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true
@@ -166,71 +173,77 @@ export default function QuestionList() {
             />
           </div>
         </div>
-
+            
         <div
-          className="align-items-center mt-2"
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "6" }}></div>
-          <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-            <TextField
-              id="filled-select-currency"
-              select
-              helperText="=Status="
-              variant="outlined"
-              name="answered"
-              onChange={handleChange}
-              style={{ width: "150px", margin: "0 5px" }}
-            >
-              <MenuItem value="">Default</MenuItem>
-              <MenuItem value="true">Answered</MenuItem>
-              <MenuItem value="false">not answered</MenuItem>
-            </TextField>
-
-            <TextField
-              id="filled-select-currency"
-              select
-              helperText="=Option="
-              variant="outlined"
-              name="option"
-              onChange={handleChange}
-              style={{ width: "150px" }}
-            >
-              <MenuItem value="">Default</MenuItem>
-              <MenuItem value="title">Title</MenuItem>
-              <MenuItem value="id">ID</MenuItem>
-              <MenuItem value="name">Nickname</MenuItem>
-            </TextField>
+          <div></div>
+          <div className="statusData select-box">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="que_select_1">=Status=</InputLabel>
+                <Select
+                  labelId="que_select_1"
+                  id="que-select-1"
+                  label="=Status="
+                  name="answered"
+                onChange={handleChange}
+                >
+                <MenuItem value="">Default</MenuItem>
+                <MenuItem value="true">Answered</MenuItem>
+                <MenuItem value="false">not answered</MenuItem>
+                </Select>
+            </FormControl>
           </div>
-          <div style={{ flex: "3" }}>
+
+          <div className="col-sm-12 ml-2 my-2 statusData1">
+            <FormControl className="cm_select_box" variant="outlined">
+                <InputLabel id="que_list_select_3">=Option=</InputLabel>
+                  <Select
+                    labelId="que_list_select_3"
+                    id="que-simple-select-3"
+                    label="=Option=="
+                    name="option"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">Default</MenuItem>
+                    <MenuItem value="title">Title</MenuItem>
+                    <MenuItem value="id">ID</MenuItem>
+                    <MenuItem value="name">Nickname</MenuItem>
+                  </Select>
+              </FormControl>
             <TextField
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               name="text"
               value={serach.text}
               onChange={handleChange}
             />
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6  my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#5376FF",
                 color: "#fff",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
             >
               {" "}
               검색{" "}
             </Button>
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6 my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#fff",
                 color: "#5376FF",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
             >
               {" "}

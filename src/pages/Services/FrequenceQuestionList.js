@@ -13,6 +13,9 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination2 from "components/Paginations/Pagination2";
 import { getAllQuestions } from "actions/frequentQuestions";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 export default function FrequenceQuestionList() {
   function createData(name, calories, fat, carbs, protein) {
@@ -77,8 +80,8 @@ export default function FrequenceQuestionList() {
 
   return (
     <div>
-      <div className="mx-3 mx-md-5">
-        <div style={{ fontWeight: "700", fontSize: "40px" }}>공지사항 목록</div>
+      <div className="mx-3 mx-md-5 noticeList_wrap">
+        <div style={{ fontWeight: "700", fontSize: "40px", color: "#000"}}>공지사항 목록</div>
 
         <div style={{ display: "flex", margin: "2% 0" }}>
           <div style={{ flex: "1" }}>
@@ -100,49 +103,55 @@ export default function FrequenceQuestionList() {
           <div style={{ flex: "8" }}></div>
         </div>
 
-        <div
-          className="align-items-center"
-          style={{ fontWeight: "700", display: "flex" }}
-        >
-          <div style={{ flex: "7", margin: "0 10px" }}></div>
-          <div style={{ margin: "0 10px", color: "#000", fontWeight: "700" }}>
+        <div className="align-items-center row registrationData" style={{ fontWeight: "700" }}>
+          <div></div>
+          <div
+            className="col-sm-12 registrationtitle my-2"
+            style={{ color: "#000", fontWeight: "700" }}
+          >
             등록일 기간 검색
           </div>
-          <div style={{ margin: "0 0 0 10px" }}>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
-              label="시작일"
+              type="text"
               name="from"
               onChange={handleChange}
+              placeholder="시작일"
               className={classes.textField}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               InputLabelProps={{
                 shrink: true
               }}
             />
           </div>
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{
-              backgroundColor: "#A9ABB0",
-              width: "55px",
-              height: "55px",
-              color: "#fff",
-              borderRadius: "3px",
-              textAlign: "center"
-            }}
-          >
-            ~
+
+          <div className="col-sm-12 col-lg-1 my-2 registrationminus">
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{
+                backgroundColor: "#A9ABB0",
+                width: "55px",
+                height: "55px",
+                borderRadius: "3px",
+                textAlign: "center"
+              }}
+            >
+              ~
+            </div>
           </div>
-          <div>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate registrationdate_2">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
-              label="종료일"
+              type="text"
+              placeholder="종료일"
               name="to"
               onChange={handleChange}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true
@@ -152,55 +161,62 @@ export default function FrequenceQuestionList() {
         </div>
 
         <div
-          className="align-items-center mt-2"
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "6" }}></div>
-          <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-            <TextField
-              id="filled-select-currency"
-              select
-              name="category"
-              placeholder="=상태="
-              variant="outlined"
-              onChange={handleChange}
-              style={{ width: "150px", margin: "0 5px" }}
-            >
-              <MenuItem value="">=카테고리==</MenuItem>
-              <MenuItem value="일반">일반</MenuItem>
-              <MenuItem value="서포트">서포트</MenuItem>
-              <MenuItem value="거래">거래</MenuItem>
-              <MenuItem value="수수료">수수료</MenuItem>
-            </TextField>
-
-            <TextField
-              id="filled-select-currency"
-              select
-              placeholder="=상태="
-              variant="outlined"
-              name="usage"
-              onChange={handleChange}
-              style={{ width: "150px" }}
-            >
-              <MenuItem value="">=검색옵션=</MenuItem>
-              <MenuItem value="사용함">사용함</MenuItem>
-              <MenuItem value="사용안함">사용안함</MenuItem>
-            </TextField>
+          <div></div>
+          <div className="statusData select-box">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="fre_select_1">=상태=`</InputLabel>
+                <Select
+                  labelId="fre_select_1"
+                  id="fre-select-1"
+                  label="=상태=`"
+                  name="category"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">=카테고리==</MenuItem>
+                  <MenuItem value="일반">일반</MenuItem>
+                  <MenuItem value="서포트">서포트</MenuItem>
+                  <MenuItem value="거래">거래</MenuItem>
+                  <MenuItem value="수수료">수수료</MenuItem>
+                </Select>
+            </FormControl>
           </div>
-          <div style={{ flex: "3" }}>
+
+          <div className="col-sm-12 ml-2 my-2 statusData1">
+            <FormControl className="cm_select_box" variant="outlined">
+                <InputLabel id="fre_list_select_3">=상태=</InputLabel>
+                  <Select
+                    labelId="fre_list_select_3"
+                    id="fre-simple-select-3"
+                    label="=상태="
+                    name="usage"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">=검색옵션=</MenuItem>
+                    <MenuItem value="사용함">사용함</MenuItem>
+                    <MenuItem value="사용안함">사용안함</MenuItem>
+                  </Select>
+              </FormControl>
             <TextField
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
+              name="text"
+              value={serach.text}
+              onChange={handleChange}
             />
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6  my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#5376FF",
                 color: "#fff",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
               onClick={handleClickOpen}
             >
@@ -208,12 +224,14 @@ export default function FrequenceQuestionList() {
               검색{" "}
             </Button>
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6 my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#fff",
                 color: "#5376FF",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
               onClick={handleClickOpenHistory}
             >
@@ -242,28 +260,28 @@ export default function FrequenceQuestionList() {
               {question &&
                 question
                   .filter((val) => {
-                    if (serach.from == "") {
+                    if (serach.from === "") {
                       return val;
                     } else if (val.created_at.includes(serach.from)) {
                       return val;
                     }
                   })
                   .filter((val) => {
-                    if (serach.to == "") {
+                    if (serach.to === "") {
                       return val;
                     } else if (val.updated_at.includes(serach.to)) {
                       return val;
                     }
                   })
                   .filter((val) => {
-                    if (serach.category == "") {
+                    if (serach.category === "") {
                       return val;
                     } else if (val.category.includes(serach.category)) {
                       return val;
                     }
                   })
                   .filter((val) => {
-                    if (serach.usage == "") {
+                    if (serach.usage === "") {
                       return val;
                     } else if (val.usage.includes(serach.usage)) {
                       return val;

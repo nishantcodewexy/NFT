@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
 import { FormControlLabel } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -97,9 +96,9 @@ export default function NFTSettings(){
 
 
     return(
-        <div className="mx-3 mx-md-5">
+        <div className="mx-3 mx-md-5 nft_setting_wrap">
             <form onSubmit={nfthandlesubmit} className='nftsetting'>
-                <div style={{fontWeight:"700", fontSize:"40px"}}>
+                <div style={{fontWeight:"700", fontSize:"40px", color : "#000"}}>
                     NFT 설정 
                 </div>
                 <div className="row mt-5">
@@ -118,8 +117,8 @@ export default function NFTSettings(){
                 </div>
                 <div className="row mt-5">
                     <div className="col-xl-3 col-lg-4">
-                        <FormLabel style={{color:"#000"}} component="legend"> ETH 수수료사용여부</FormLabel>
-                        <RadioGroup
+                        <FormLabel style={{color:"#000"}} component="legend" className="label_trangle"> ETH 수수료사용여부</FormLabel>
+                        <RadioGroup className="cm_radio_btn"
                             onChange={(event) => {ethradioHandler(event)}}
                         >
                             <div style={{display:"flex"}}>
@@ -143,8 +142,8 @@ export default function NFTSettings(){
                 </div>
                 <div className="row mt-5">
                     <div className="col-xl-3 col-lg-4">
-                        <FormLabel style={{color:"#000"}} component="legend"> MATIC 수수료사용여부</FormLabel>
-                        <RadioGroup>
+                        <FormLabel style={{color:"#000"}} component="legend" className="label_trangle"> MATIC 수수료사용여부</FormLabel>
+                        <RadioGroup className="cm_radio_btn">
                             <div style={{display:"flex"}}>
                                 <FormControlLabel style={{color:"#000"}} value="사용함" control={<Radio />} label="사용함" />
                                 <FormControlLabel style={{color:"#000"}} value="사용안함" control={<Radio />} label="사용안함" />

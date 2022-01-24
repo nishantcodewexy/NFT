@@ -1,0 +1,16 @@
+.noticeList_wrap .MuiSelect-selectMenu{
+    text-align: left;
+}
+@media only screen and (max-width: 1080px) {
+    .noticeList_wrap .statusData1{
+        margin-left: 0px !important;
+    }
+    .noticeList_wrap .registrationdate,
+    .noticeList_wrap .registrationdate .MuiFormControl-root.MuiTextField-root{
+        width: 100%;
+    }
+    .noticeList_wrap .registrationminus{
+        display: flex;
+        justify-content: center;
+    }
+}

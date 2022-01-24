@@ -5,19 +5,18 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormLabel from "@material-ui/core/FormLabel";
 import { FormControlLabel } from "@material-ui/core";
-import Slide from "@material-ui/core/Slide";
 import MenuItem from "@material-ui/core/MenuItem";
 import { getAQuestion } from "actions/frequentQuestions";
 import { useParams } from "react-router-dom";
 import { EditAQuestion } from "actions/frequentQuestions";
 import { Link } from "react-router-dom";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 export default function EditFrequance() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   const [question, setQuestion] = useState({
     questions: "",
@@ -52,13 +51,13 @@ export default function EditFrequance() {
     });
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px" }}>공지사항 등록</div>
+    <div className="mx-3 mx-md-5 EditFrequance_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>자주하는 질문 편집</div>
       <div className="row mt-5">
         <div className="col-lg-6">
           <label style={{ color: "#000" }}> 공지사항 제목</label> <br />
@@ -116,10 +115,10 @@ export default function EditFrequance() {
 
       <div className="row mt-5">
         <div className="col-lg-6">
-          <FormLabel style={{ color: "#000" }} component="legend">
+          <FormLabel style={{ color: "#000" }} component="legend" className="label_trangle">
             사용여부
           </FormLabel>
-          <RadioGroup>
+          <RadioGroup className="cm_radio_btn">
             <div style={{ display: "flex" }}>
               <FormControlLabel
                 style={{ color: "#000" }}
@@ -143,40 +142,39 @@ export default function EditFrequance() {
       </div>
 
       <div className="row mt-5">
-        <div className="col-lg-1">
-          <Button
-            style={{
-              backgroundColor: "#5376FF",
-              width: "100px",
-              height: "auto",
-              outline: "none"
-            }}
-            variant="contained"
-            color="primary"
-            onClick={handleSubmit}
-          >
-            저장
-          </Button>
-        </div>
-        <div className="col-lg-1">
-          <Link to="/frequent-list">
+        <div className="col">
+          <div className="ne_save_btn_wrap">
             <Button
               style={{
-                border: "1px solid #5376FF",
-                color: "#5376FF",
+                backgroundColor: "#5376FF",
                 width: "100px",
                 height: "auto",
-                outline: "none",
-                backgroundColor: "transparent"
+                outline: "none"
               }}
               variant="contained"
               color="primary"
+              onClick={handleSubmit}
             >
-              목록
+              저장
             </Button>
-          </Link>
+            <Link to="/frequent-list">
+              <Button
+                style={{
+                  border: "1px solid #5376FF",
+                  color: "#5376FF",
+                  width: "100px",
+                  height: "auto",
+                  outline: "none",
+                  backgroundColor: "transparent"
+                }}
+                variant="contained"
+                color="primary"
+              >
+                목록
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

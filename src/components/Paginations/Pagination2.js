@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "../../style/login.css";
 
 //import { getAllAdmin } from "./../../actions/admin";
@@ -46,7 +45,7 @@ function Pagination({ pages, setAdmin, getList, setSize, setNewPage }) {
                   i === clicked ? "pagination-item-active" : "pagination-item"
                 }
                 key={i}
-                tabindex={i}
+                tabIndex={i}
                 onClick={(e) => {
                   getList(i + 1).then((res) => {
                     setAdmin(res.data);

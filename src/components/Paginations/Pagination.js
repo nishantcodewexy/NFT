@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Pagination({ postsPerPage, totalPosts, paginate }) {
   const pageNumber = [];
@@ -18,7 +18,7 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
         </li>
 
         <li className="page-item">
-          <a onClick="#" className="page-link">
+          <a hred="#0" className="page-link">
             {"Pre"}
           </a>
         </li>
@@ -37,7 +37,7 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
         )}
 
         <li className="page-item">
-          <a onClick="#" className="page-link">
+          <a hred="#0" className="page-link">
             {"Next"}
           </a>
         </li>

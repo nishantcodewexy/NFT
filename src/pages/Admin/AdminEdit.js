@@ -1,12 +1,10 @@
 // import package
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Transfer } from "antd";
 
 // @material-ui/core
-import { makeStyles } from "@material-ui/core/styles";
-import { Checkbox, FormControlLabel, InputLabel } from "@material-ui/core";
+
+import { FormControlLabel } from "@material-ui/core";
 import {
   CheckBoxOutlineBlank as CheckBoxOutlineBlankIcon,
   CheckBox as CheckBoxIcon
@@ -14,32 +12,17 @@ import {
 
 // import InputLabel from "@material-ui/core/InputLabel";
 // core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
-
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputAdornment from "@material-ui/core/InputAdornment";
-
-import CheckboxesTags from "./test";
 
 //import avatar from "assets/img/faces/marc.jpg";
-import isEmpty from "../../lib/isEmpty";
 
 // import action
 import { editAdmin } from "../../actions/admin";
 
 // import lib
-import routes from "../../routes";
 import { toastAlert } from "../../lib/toastAlert";
 
 import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
@@ -47,18 +30,8 @@ import "react-phone-input-2/lib/material.css";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-
-import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
 
 import { getAnAdmin } from "./../../actions/admin";
-import { Transfefr } from "./TransferComponent";
 import TransferList from "./TransferMat";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
@@ -163,7 +136,7 @@ const AdminEdit = (props) => {
               variant="outlined"
               name="email"
               value={formValue.email}
-              fullwidth
+              fullwidth="true"
               inputProps={{ readOnly: true }}
               style={{ width: "300px" }}
             />
@@ -177,7 +150,7 @@ const AdminEdit = (props) => {
               value={formValue.name}
               name="name"
               onChange={handleChange}
-              fullwidth
+              fullwidth="true"
               style={{ width: "300px" }}
             />
           </div>
@@ -187,7 +160,10 @@ const AdminEdit = (props) => {
               specialLabel=""
               country={"us"}
               value={formValue.mobile}
-              onChange={(e) => (formValue.mobile = e)}
+              onChange={(e) => {
+                formValue.mobile = e;
+                console.log(formValue.mobile);
+              }}
               style={{
                 borderRadius: "8px",
                 backgroundColor: "transparent",
@@ -205,7 +181,7 @@ const AdminEdit = (props) => {
                                 placeholder="KOR +82"
                                 select
                                 variant="outlined"
-                                fullwidth
+                                fullwidth="true"
                                 style={{width:"80px"}}
                             >
                                 <MenuItem>
@@ -237,7 +213,7 @@ const AdminEdit = (props) => {
               value={formValue.department}
               onChange={handleChange}
               name="department"
-              fullwidth
+              fullwidth="true"
               style={{ width: "300px" }}
             />
           </div>
@@ -246,17 +222,17 @@ const AdminEdit = (props) => {
             <TextField
               id="filled-select-currency"
               variant="outlined"
-              fullwidth
+              fullwidth="true"
               name="password"
               onChange={handleChange}
               style={{ width: "300px" }}
             />
           </div>
           <div className="col-lg-4" style={{ width: "300px" }}>
-            <FormLabel style={{ color: "#000" }} component="legend">
+            <FormLabel style={{ color: "#000" }} component="legend" className="label_trangle">
               관리자 담당상태
             </FormLabel>
-            <RadioGroup>
+            <RadioGroup className="cm_radio_btn">
               <div style={{ display: "flex" }}>
                 <FormControlLabel
                   style={{ color: "#000" }}
@@ -314,42 +290,46 @@ const AdminEdit = (props) => {
             width: "100%"
           }}
         >
-          <div className="col-lg-1">
-            <Button
-              type="submit"
-              style={{
-                backgroundColor: "#5376FF",
-                width: "100px",
-                height: "auto",
-                outline: "none"
-              }}
-              variant="contained"
-              color="primary"
-            >
-              저장
-            </Button>
-          </div>
-          <div className="col-lg-1">
-            <Link to="/admin-list">
+          <div className="col cm_edit_btn">
+            <div >
               <Button
+                type="submit"
                 style={{
-                  border: "1px solid #5376FF",
-                  color: "#5376FF",
+                  backgroundColor: "#5376FF",
                   width: "100px",
                   height: "auto",
-                  outline: "none",
-                  backgroundColor: "transparent"
+                  outline: "none"
                 }}
                 variant="contained"
                 color="primary"
               >
-                목록
+                저장
               </Button>
-            </Link>
+            </div>
+            <div>
+              <Link to="/admin-list">
+                <Button
+                  style={{
+                    border: "1px solid #5376FF",
+                    color: "#5376FF",
+                    width: "100px",
+                    height: "auto",
+                    outline: "none",
+                    backgroundColor: "transparent"
+                  }}
+                  variant="contained"
+                  color="primary"
+                >
+                  목록
+                </Button>
+              </Link>
+            </div>
           </div>
-          <div className="col-lg-10"></div>
         </div>
 
+        <div style={{ fontWeight: "700", fontSize: "30px" }} className="mt-5 mb-3">
+          관리자 메뉴 관리
+        </div>
         <TransferList menu={menu} id={id} />
 
         {/* <div className="mt-5" style={{ fontWeight: "700", fontSize: "30px" }}>

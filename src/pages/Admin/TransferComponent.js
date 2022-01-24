@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Transfer, Switch, Table, Tag } from "antd";
+import { Transfer, Table } from "antd";
 import difference from "lodash/difference";
 
 // Customize Table Transfer

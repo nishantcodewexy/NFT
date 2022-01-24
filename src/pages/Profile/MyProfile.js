@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import { getAnAdmin } from "actions/admin";
 import { editAdmin } from "actions/admin";
 
+import "./style.css";
+
 export default function MyProfile() {
   const [admin, setAdmin] = useState({
     admin_id: "",
@@ -34,7 +36,7 @@ export default function MyProfile() {
   };
 
   return (
-    <div className="mx-3 mx-md-5">
+    <div className="mx-3 mx-md-5 my_profile_wrap">
       <div style={{ fontWeight: "700", fontSize: "40px" }}>내 프로필</div>
       <div
         className="mt-5 row"
@@ -49,8 +51,8 @@ export default function MyProfile() {
             value={admin.admin_id}
             disabled
             onChange={handleChange}
-            fullwidth
-            style={{ width: "300px" }}
+            fullwidth="true"
+            className="nft_mf_inpit"
           />
         </div>
         <div className="col-lg-4">
@@ -62,8 +64,8 @@ export default function MyProfile() {
             value={admin.name}
             name="name"
             onChange={handleChange}
-            fullwidth
-            style={{ width: "300px" }}
+            fullwidth="true"
+            className="nft_mf_inpit"
           />
         </div>
         <div className="col-lg-4">
@@ -95,9 +97,9 @@ export default function MyProfile() {
             variant="outlined"
             name="department"
             onChange={handleChange}
-            fullwidth
+            fullwidth="true"
             value={admin.department}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
           />
         </div>
         <div className="col-lg-4">
@@ -105,12 +107,12 @@ export default function MyProfile() {
           <TextField
             id="filled-select-currency"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             name="password"
             type="password"
             onChange={handleChange}
             //value={admin.password}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
           />
         </div>
       </div>
@@ -124,7 +126,7 @@ export default function MyProfile() {
           width: "100%"
         }}
       >
-        <div className="col-lg-1">
+        <div className="modification_left_btn col-12">
           <Button
             onClick={editUser}
             style={{
@@ -137,8 +139,6 @@ export default function MyProfile() {
           >
             저장
           </Button>
-        </div>
-        <div className="col-lg-1">
           <Button
             style={{
               border: "1px solid #5376FF",
@@ -154,7 +154,6 @@ export default function MyProfile() {
             목록
           </Button>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

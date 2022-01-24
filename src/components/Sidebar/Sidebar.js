@@ -47,6 +47,7 @@ export default function Sidebar(props) {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -60,12 +61,12 @@ export default function Sidebar(props) {
     setOpen3(!open3);
   };
 
+  const handleClick4 = () => {
+    setOpen4(!open4);
+  };
+
   // redux-state
   const authData = useSelector((state) => state.auth);
-  console.log(
-    authData,
-    "========================================authDatalogin"
-  );
 
   /* const handleClick = (collapseId) => {
     if (collapseId == collapse) {
@@ -95,7 +96,7 @@ export default function Sidebar(props) {
           disableTypography={true}
           style={{ color: "#fff" }}
         />
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
       </ListItem>
 
       <ListItem button component={Link} to="/userList">
@@ -108,7 +109,7 @@ export default function Sidebar(props) {
           disableTypography={true}
           style={{ color: "#fff" }}
         />
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
       </ListItem>
 
       <ListItem
@@ -125,7 +126,7 @@ export default function Sidebar(props) {
           style={{ color: "#fff" }}
         />
 
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -175,7 +176,7 @@ export default function Sidebar(props) {
           style={{ color: "#fff" }}
         />
 
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
         {open3 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -201,19 +202,44 @@ export default function Sidebar(props) {
           </ListItem>
         </List>
       </Collapse>
+      
 
-      <ListItem button component={Link} to="/personal-terms">
+
+
+      <ListItem
+        button
+        onClick={handleClick4}
+        //</List>component={Link} to="/nft-management"
+      >
         <ListItemIcon>
           <img src={five} />
         </ListItemIcon>
         <ListItemText
-          primary="약관 및 방침 관리"
+          primary="약관 및 정책 관리"
           disableTypography={true}
           style={{ color: "#fff" }}
         />
 
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
+        {open4 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
+
+      <Collapse in={open4} timeout="auto" unmountOnExit>
+        <List disablePadding>
+          <ListItem button component={Link} to="/personal-terms">
+            <ListItemIcon style={{ color: "#fff" }}>
+              <FiberManualRecordRoundedIcon style={{ fontSize: "small" }} />
+            </ListItemIcon>
+            <ListItemText primary="약관 및 방침 관리" style={{ color: "#fff" }} />
+          </ListItem>
+          <ListItem button component={Link} to="/policy">
+            <ListItemIcon style={{ color: "#fff" }}>
+              <FiberManualRecordRoundedIcon style={{ fontSize: "small" }} />
+            </ListItemIcon>
+            <ListItemText primary="policy" style={{ color: "#fff" }} />
+          </ListItem>
+        </List>
+      </Collapse>
 
       <ListItem button component={Link} to="/popular">
         <ListItemIcon>
@@ -224,7 +250,7 @@ export default function Sidebar(props) {
           disableTypography={true}
           style={{ color: "#fff" }}
         />
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
       </ListItem>
 
       <ListItem
@@ -241,7 +267,7 @@ export default function Sidebar(props) {
           style={{ color: "#fff" }}
         />
 
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
         {open2 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -286,7 +312,7 @@ export default function Sidebar(props) {
           disableTypography={true}
           style={{ color: "#fff" }}
         />
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
       </ListItem>
 
       <ListItem button onClick={logoutadmin}>
@@ -298,7 +324,7 @@ export default function Sidebar(props) {
           disableTypography={true}
           style={{ color: "#fff" }}
         />
-        <i style={{ color: "white" }} class="fas fa-chevron-right"></i>
+        <i style={{ color: "white" }} className="fas fa-chevron-right"></i>
       </ListItem>
 
       {/*

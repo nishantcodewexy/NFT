@@ -13,18 +13,9 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import { getLoginHistory } from './../../actions/users';
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.js";
 import Input from "@material-ui/core/Input";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Search from "@material-ui/icons/Search";
 
 import FormControl from "@material-ui/core/FormControl";
 

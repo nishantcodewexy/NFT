@@ -10,7 +10,7 @@ export default function TCManagementPersonal() {
     personal: ""
   });
 
-  const id = terms.term_id;
+  const id = terms?.term_id;
 
   useEffect(() => {
     getAllTerms().then((res) => {
@@ -44,13 +44,13 @@ export default function TCManagementPersonal() {
           >
             <textarea
               name="personal"
-              value={terms.personal}
+              value={terms?.personal}
               onChange={handleChange}
               style={{
                 width: "100%",
                 backgroundColor: "transparent",
                 height: "200px",
-                border: "1px solid #000",
+                border: "unset",
                 borderRadius: "8px"
               }}
             />
@@ -58,7 +58,7 @@ export default function TCManagementPersonal() {
         </div>
       </div>
       <div className="row mt-3">
-        <div className="col-lg-1">
+        <div className="col">
           <Button
             onClick={handleClick}
             style={{
@@ -74,25 +74,6 @@ export default function TCManagementPersonal() {
             저장
           </Button>
         </div>
-        <div className="col-lg-1">
-          <Link to="/admin-list">
-            <Button
-              style={{
-                border: "1px solid #5376FF",
-                color: "#5376FF",
-                width: "100px",
-                height: "auto",
-                outline: "none",
-                backgroundColor: "transparent"
-              }}
-              variant="contained"
-              color="primary"
-            >
-              목록
-            </Button>
-          </Link>
-        </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

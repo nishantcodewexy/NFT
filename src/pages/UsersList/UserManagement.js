@@ -2,52 +2,29 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import { getAllUsers } from './../../actions/users';
-import Search from "@material-ui/icons/Search";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.js";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
-import LockIcon from '@material-ui/icons/Lock';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 
-import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Avatar from '@material-ui/core/Avatar';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
@@ -299,7 +276,7 @@ export default function EnhancedTable() {
                     id="filled-select-currency"
                     placeholder="admin04"
                     variant="outlined"
-                    fullwidth
+                    fullwidth="true"
                     style={{width:"300px"}}
                 />
             </div>
@@ -309,7 +286,7 @@ export default function EnhancedTable() {
                         id="filled-select-currency"
                         placeholder="0xff2C8BC69fDdF43a35e09d167774421a6035398F"
                         variant="outlined"
-                        fullwidth
+                        fullwidth="true"
                         style={{width:"300px"}}
                     />
             </div>
@@ -347,7 +324,7 @@ export default function EnhancedTable() {
                                 placeholder="KOR +82"
                                 select
                                 variant="outlined"
-                                fullwidth
+                                fullwidth="true"
                                 style={{width:"80px"}}
                             >
                                 <MenuItem>
@@ -373,7 +350,7 @@ export default function EnhancedTable() {
                     id="filled-select-currency"
                     placeholder="홍길동"
                     variant="outlined"
-                    fullwidth
+                    fullwidth="true"
                     style={{width:"300px"}}
                 />
             </div>
@@ -382,7 +359,7 @@ export default function EnhancedTable() {
                     <TextField
                         id="filled-select-currency"
                         variant="outlined"
-                        fullwidth
+                        fullwidth="true"
                         placeholder="0x9Eeb60d8F2dAd6B429d7d5A25f68C219459c6444"
                         style={{width:"300px"}}
                     />

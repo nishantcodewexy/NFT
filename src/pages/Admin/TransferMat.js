@@ -194,16 +194,16 @@ export default function TransferList({ menu, id }) {
   };
 
   const numberOfChecked = (items) => intersection(checked, items).length;
-  const numberOfChecked2 = (items2) => intersection(checked, items2).length;
-  const numberOfChecked3 = (items3) => intersection(checked, items3).length;
+  // const numberOfChecked2 = (items2) => intersection(checked, items2).length;
+  // const numberOfChecked3 = (items3) => intersection(checked, items3).length;
 
-  const handleToggleAll = (items) => () => {
-    if (numberOfChecked(items) === items.length) {
-      setChecked(not(checked, items));
-    } else {
-      setChecked(union(checked, items));
-    }
-  };
+  // const handleToggleAll = (items) => () => {
+  //   if (numberOfChecked(items) === items.length) {
+  //     setChecked(not(checked, items));
+  //   } else {
+  //     setChecked(union(checked, items));
+  //   }
+  // };
 
   const handleCheckedRight = () => {
     setRight(right.concat(leftChecked));
@@ -271,7 +271,7 @@ export default function TransferList({ menu, id }) {
       <Divider />
       {left.length > 0 && (
         <h3 className="ml-5" style={{ fontWeight: "500" }}>
-          관리자 관리
+          관리자 관리 
         </h3>
       )}
       <List className={classes.list} dense component="div" role="list">
@@ -674,7 +674,7 @@ export default function TransferList({ menu, id }) {
                   flex: "4"
                 }}
               >
-                {value == "NFT 목록" ? (
+                {value === "NFT 목록" ? (
                   <RadioGroup>
                     <div style={{ display: "flex" }}>
                       <FormControlLabel
@@ -689,7 +689,6 @@ export default function TransferList({ menu, id }) {
                         control={<Radio color="primary" />}
                         label="읽기"
                       />
-                      {console.log(value)}
                       <FormControlLabel
                         style={{ color: "#000" }}
                         value="쓰기"
@@ -704,7 +703,7 @@ export default function TransferList({ menu, id }) {
                       />
                     </div>
                   </RadioGroup>
-                ) : value == "NFT 거래내역" ? (
+                ) : value === "NFT 거래내역" ? (
                   <RadioGroup>
                     <div style={{ display: "flex" }}>
                       <FormControlLabel
@@ -733,7 +732,7 @@ export default function TransferList({ menu, id }) {
                       />
                     </div>
                   </RadioGroup>
-                ) : value == "NFT 거래내역" ? (
+                ) : value === "NFT 거래내역" ? (
                   <RadioGroup>
                     <div style={{ display: "flex" }}>
                       <FormControlLabel
@@ -916,7 +915,7 @@ export default function TransferList({ menu, id }) {
           Member Management
         </h3>
       )}
-      <List className={classes.list2} dense component="div" role="list">
+      <List className={`${classes.list2}`} dense component="div" role="list">
         {items4.map((value) => {
           const labelId = `transfer-list-all-item-${value}-label`;
 

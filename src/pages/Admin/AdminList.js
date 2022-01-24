@@ -17,17 +17,12 @@ import Paper from "@material-ui/core/Paper";
 import { getAllAdmin } from "./../../actions/admin";
 
 import Button from "components/CustomButtons/Button.js";
-import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.js";
 
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
-// import Select from "@material-ui/core/Select";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import FormControl from "@material-ui/core/FormControl";
 
 import MenuItem from "@material-ui/core/MenuItem";
-//import Pagination from "@material-ui/lab/Pagination";
 
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -37,7 +32,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 
 import Pagination2 from "components/Paginations/Pagination2";
-import Search from "@material-ui/icons/Search";
+
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 import "./style.css";
 
@@ -333,40 +331,40 @@ export default function EnhancedTable() {
           <div className=""></div>
 
           <div
-            className="col-sm-12 statusData"
+            className="col-sm-12 statusData admin_statusData"
             style={{ color: "#000", fontWeight: "700" }}
           >
-        
-            <TextField
-              id="filled-select-currency"
-              name="status"
-              fullWidth
-              onChange={(event) => {handleChange(event)}}
-              value={serach.status}
-              variant="outlined"
-              helperText="=상태="
-              style={{ width: "150px" }}
-            >
+            <FormControl className="cm_select_box" variant="outlined">
+            <InputLabel id="admin_list_select_1">=상태=</InputLabel>
+              <Select
+                labelId="admin_list_select_1"
+                id="admin-simple-select-1"
+                label="=상태="
+                name="status"
+                value={serach.status}
+                onChange={(event) => {handleChange(event)}}
+              >
+                <MenuItem value="">Default</MenuItem>
+                <MenuItem value="활성 ">활성</MenuItem>
+                <MenuItem value="비활성">비활성</MenuItem>
+              </Select>
+            </FormControl>
+            
+            <FormControl className="cm_select_box" variant="outlined">
+            <InputLabel id="admin_list_select_2">=검색옵션=</InputLabel>
+              <Select
+                labelId="admin_list_select_2"
+                id="admin-simple-select-2"
+                label="=검색옵션="
+                name="option"
+                value={serach.option}
+                onChange={(event) => {handleChange(event)}}
+              >
               <MenuItem value=""> Default</MenuItem>
-              <MenuItem value="활성 ">활성</MenuItem>
-              <MenuItem value="비활성">비활성</MenuItem>
-            </TextField>
-
-            <TextField
-              id="filled-select-currency"
-              select
-              value={serach.option}
-              variant="outlined"
-              helperText=" =검색옵션="
-              name="option"
-              fullWidth
-              onChange={handleChange}
-              style={{ width: "150px" }}
-            >
-              <MenuItem value=""></MenuItem>
               <MenuItem value="아이디">아이디</MenuItem>
               <MenuItem value="이름">이름</MenuItem>
-            </TextField>
+              </Select>
+            </FormControl>
           </div>
           <div className="col-sm-12 statusData1">
             <TextField
@@ -376,7 +374,7 @@ export default function EnhancedTable() {
               name="text"
               value={serach.text}
               onChange={handleChange}
-              fullwidth
+              fullWidth
             />
           </div>
           <div className="col-sm-12 statusData2">

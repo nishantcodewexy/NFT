@@ -32,13 +32,13 @@ export default function EditNotice() {
 
   const handleSubmit = () => {
     EditANotice(notices, id).then((res) => {
-      res.status == "success" && alert("Sucessfully updated.");
+      res.status === "success" && alert("Sucessfully updated.");
     });
   };
 
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px" }}>공지사항 등록</div>
+    <div className="mx-3 mx-md-5 EditNotice_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>공지의 편집</div>
       <div className="row mt-5">
         <div className="col-lg-6">
           <label style={{ color: "#000" }}> 공지사항 제목</label> <br />
@@ -91,10 +91,10 @@ export default function EditNotice() {
 
       <div className="row mt-5">
         <div className="col-lg-6">
-          <FormLabel style={{ color: "#000" }} component="legend">
+          <FormLabel style={{ color: "#000" }} component="legend" className="label_trangle">
             사용여부
           </FormLabel>
-          <RadioGroup>
+          <RadioGroup className="cm_radio_btn">
             <div style={{ display: "flex" }}>
               <FormControlLabel
                 style={{ color: "#000" }}
@@ -118,40 +118,39 @@ export default function EditNotice() {
       </div>
 
       <div className="row mt-5">
-        <div className="col-lg-1">
-          <Button
-            style={{
-              backgroundColor: "#5376FF",
-              width: "100px",
-              height: "auto",
-              outline: "none"
-            }}
-            variant="contained"
-            color="primary"
-            onClick={handleSubmit}
-          >
-            저장
-          </Button>
-        </div>
-        <div className="col-lg-1">
-          <Link to="/notice-list">
-            <Button
-              style={{
-                border: "1px solid #5376FF",
-                color: "#5376FF",
-                width: "100px",
-                height: "auto",
-                outline: "none",
-                backgroundColor: "transparent"
-              }}
-              variant="contained"
-              color="primary"
-            >
-              목록
-            </Button>
-          </Link>
-        </div>
-        <div className="col-lg-10"></div>
+          <div className="col">
+            <div className="ne_save_btn_wrap">
+                <Button
+                style={{
+                  backgroundColor: "#5376FF",
+                  width: "100px",
+                  height: "auto",
+                  outline: "none"
+                }}
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+              >
+                저장
+              </Button>
+              <Link to="/notice-list">
+                <Button
+                  style={{
+                    border: "1px solid #5376FF",
+                    color: "#5376FF",
+                    width: "100px",
+                    height: "auto",
+                    outline: "none",
+                    backgroundColor: "transparent"
+                  }}
+                  variant="contained"
+                  color="primary"
+                >
+                  목록
+                </Button>
+              </Link>
+            </div>
+          </div>
       </div>
     </div>
   );

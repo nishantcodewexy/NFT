@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
-import { DataGrid, RowsProp, ColDef } from '@material-ui/data-grid';
-import { Paper, Button } from '@material-ui/core';
+import { DataGrid, } from '@material-ui/data-grid';
+import { Paper } from '@material-ui/core';
 import {
     Visibility as VisibilityIcon
 } from '@material-ui/icons';
@@ -20,7 +19,6 @@ import DepositRequestModal from './DepositRequestModal';
 import { getDepositRequest, approvedDepositRequest } from './../../actions/wallet';
 
 // import lib
-import { transactionStatus } from '../../lib/statusCode';
 import { toastAlert } from '../../lib/toastAlert';
 
 const styles = {

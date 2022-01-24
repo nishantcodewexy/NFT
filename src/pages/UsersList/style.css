@@ -72,6 +72,16 @@
 .MuiPagination-ul li button{
   margin: 0 7.5px;
 }
+.excel_btn button{
+  color: #000;
+  border-color: #000;
+}
+.UserList_wrap .statusData1{
+  margin-left: 8px;
+}
+.UserList_wrap .registrationdate2{
+  margin-right: 15px;
+}
 
 @media screen and (max-width: 1080px) {
   .statusWrap_1 .statusData1{

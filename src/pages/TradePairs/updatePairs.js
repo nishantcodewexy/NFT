@@ -21,7 +21,6 @@ import { getSingleSpotPair, editSpotPair } from '../../actions/tradePair';
 import { getCurrencyDropDown } from '../../actions/currency';
 
 // import lib
-import isEmpty from '../../lib/isEmpty';
 import { toastAlert } from '../../lib/toastAlert';
 
 const styles = {

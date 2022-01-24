@@ -2,26 +2,18 @@ import React, { useState, useEffect } from "react";
 import clsx from 'clsx';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { AttachFile } from '@material-ui/icons';
-import { FormControl, OutlinedInput, InputAdornment } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
 //import avatar from "assets/img/faces/marc.jpg";
-import isEmpty from '../../lib/isEmpty';
 
-import { getSupportId, savereply, closeticket } from '../../actions/users';
+import { getSupportId } from '../../actions/users';
 
 const styles = {
   cardCategoryWhite: {
@@ -92,18 +84,18 @@ export default function UserProfile() {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <div className="ticket_details_panel">
-                    <div class="user_img">
+                    <div className="user_img">
                       {/* <img src={require("../../assets/img/tim_80x80.png")} alt="User"/> */}
                     </div>
-                    <div class="ticket_details_div">
+                    <div className="ticket_details_div">
                       <h2>{ticket && ticket.subject}</h2>
-                      <p class="mb-1">Created on {ticket && ticket.created_date}  |  Tickect ID: {ticket && ticket.ticketno}</p>
-                      <p class="mb-0 ticket_status_div">Status:   {
+                      <p className="mb-1">Created on {ticket && ticket.created_date}  |  Tickect ID: {ticket && ticket.ticketno}</p>
+                      <p className="mb-0 ticket_status_div">Status:   {
                         ticket && ticket.closedstatus == 0 &&
-                        <span class="text-danger"><b>Open</b></span>
+                        <span className="text-danger"><b>Open</b></span>
                       }
                         {ticket && ticket.closedstatus == 1 &&
-                          <span class="text-success"><b>Closed</b></span>
+                          <span className="text-success"><b>Closed</b></span>
                         }</p>
                       <hr />
                       <p className="text-dark"><b>Hello Admin,</b></p>
@@ -116,29 +108,29 @@ export default function UserProfile() {
 
                       if (reply.replytype == "admin") {
                         return (<div className="ticket_details_panel mt-4">
-                          <div class="user_img">
+                          <div className="user_img">
                             {/* <img src={require("../../assets/img/tim_80x80.png")} alt="User"/> */}
                           </div>
-                          <div class="ticket_details_div">
-                            <p class="mb-1">Admin reply on {reply.replydate}</p>
+                          <div className="ticket_details_div">
+                            <p className="mb-1">Admin reply on {reply.replydate}</p>
                             <hr />
                             <p className="text-dark"><b>Hello User,</b></p>
                             <p>{reply.message_query}</p>
-                            <p class="mt-3 mb-2">Thanks,<br />{reply.replytype}</p>
+                            <p className="mt-3 mb-2">Thanks,<br />{reply.replytype}</p>
                           </div>
                         </div>)
                       }
                       if (reply.replytype != "admin") {
                         return (<div className="ticket_details_panel mt-4">
-                          <div class="user_img">
+                          <div className="user_img">
                             {/* <img src={require("../../assets/img/tim_80x80.png")} alt="User"/> */}
                           </div>
-                          <div class="ticket_details_div">
-                            <p class="mb-1">User reply on {reply.replydate}</p>
+                          <div className="ticket_details_div">
+                            <p className="mb-1">User reply on {reply.replydate}</p>
                             <hr />
                             <p className="text-dark"><b>Hello Admin,</b></p>
                             <p>{reply.message_query}</p>
-                            <p class="mt-3 mb-2">Thanks,<br />{reply.replytype}</p>
+                            <p className="mt-3 mb-2">Thanks,<br />{reply.replytype}</p>
                           </div>
                         </div>)
                       }

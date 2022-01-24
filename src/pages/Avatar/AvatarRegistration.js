@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
 import { FormControlLabel } from "@material-ui/core";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -102,7 +101,7 @@ export default function AvatarRegistration() {
               style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}
             >
               {" "}
-              <i class="fas fa-caret-right"></i> Avata name
+              <i className="fas fa-caret-right"></i> Avata name
             </label>
             <br />
             <TextField
@@ -113,16 +112,16 @@ export default function AvatarRegistration() {
               name="name"
               value={avatar.value}
               onChange={handleChange}
-              fullwidth
+              fullwidth="true"
               style={{ width: "300px" }}
             />
           </div>
-          <div>
+          <div className="mt-3 mt-lg-5">
             <label
               style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}
             >
               {" "}
-              <i class="fas fa-caret-right"></i> Avata image File
+              <i className="fas fa-caret-right"></i> Avata image File
             </label>
             <div>
               <TextField
@@ -136,7 +135,7 @@ export default function AvatarRegistration() {
                   setImage(e.target.files);
                   setPreview(URL.createObjectURL(e.target.files[0]));
                 }}
-                fullwidth
+                fullwidth="true"
                 style={{ width: "300px" }}
               />
             </div>
@@ -156,10 +155,10 @@ export default function AvatarRegistration() {
             </div>
           </div>
         </div>
-        <div className="col-lg-6">
+        <div className="col-lg-6 mt-lg-0 mt-4">
           <label style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}>
             {" "}
-            <i class="fas fa-caret-right"></i> Preview
+            <i className="fas fa-caret-right"></i> Preview
           </label>
           {preview != null ? (
             <img
@@ -168,8 +167,10 @@ export default function AvatarRegistration() {
                 width: "200px",
                 border: "0.5px solid #000",
                 borderRadius: "4px",
-                fontSize: "16px"
+                fontSize: "16px",
+                objectFit: "contain"
               }}
+              alt="img"
               src={preview}
               className="d-flex justify-content-center align-items-center"
             />
@@ -189,14 +190,14 @@ export default function AvatarRegistration() {
           )}
         </div>
       </div>
-      <div className="mt-5 row">
+      <div className="mt-3 mt-lg-5 row">
         <div className="col-lg-6"></div>
         <div className="col-lg-6">
           <label style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}>
             {" "}
-            <i class="fas fa-caret-right"></i> Status
+            <i className="fas fa-caret-right"></i> Status
           </label>{" "}
-          <RadioGroup required>
+          <RadioGroup required className="cm_radio_btn">
             <div style={{ display: "flex" }}>
               <FormControlLabel
                 style={{ color: "#000" }}
@@ -220,7 +221,7 @@ export default function AvatarRegistration() {
       </div>
       <div>{message}</div>
       <div
-        className="row mt-5"
+        className="row mt-3 mt-lg-5"
         style={{
           fontWeight: "700",
           fontSize: "18px",
@@ -228,7 +229,7 @@ export default function AvatarRegistration() {
           width: "100%"
         }}
       >
-        <div className="col-lg-1">
+        <div className="avatar_save_btn">
           <Button
             onClick={onSubmit}
             style={{
@@ -241,8 +242,6 @@ export default function AvatarRegistration() {
           >
             save
           </Button>
-        </div>
-        <div className="col-lg-1">
           <Link to="/avatar-list">
             <Button
               style={{
@@ -259,7 +258,6 @@ export default function AvatarRegistration() {
             </Button>
           </Link>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

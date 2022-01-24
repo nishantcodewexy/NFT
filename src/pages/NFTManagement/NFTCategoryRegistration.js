@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
 import { FormControlLabel } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { addCategory } from "actions/nft.action";

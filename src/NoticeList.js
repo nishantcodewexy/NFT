@@ -173,7 +173,7 @@ const classes = useStyles();
                     id="filled-select-currency"
                     placeholder="검색옵션을 선택해주세요."
                     variant="outlined"
-                    fullwidth
+                    fullwidth="true"
                 />
             </div>
             <div style={{flex:"1"}}>

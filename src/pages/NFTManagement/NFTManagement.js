@@ -7,9 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "components/Paginations/Pagination";
@@ -30,9 +28,7 @@ import Select from '@material-ui/core/Select';
 
 import "../../style/login.css";
 import historyImage from "../../images/item_3.png";
-import { getAllNFT, stoppedChange } from "actions/nft.action";
-import { getAnAdmin } from "actions/admin";
-import axios from "axios";
+import { stoppedChange } from "actions/nft.action";
 import "../UsersList/style.css";
 import "./style.css";
 
@@ -120,7 +116,6 @@ export default function NFTManagement() {
     setOpen2(false);
   };
 
-  console.log(nft);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPage = indexOfLastPost - postsPerPage;
@@ -181,7 +176,7 @@ export default function NFTManagement() {
         </div>
 
         <div className="align-items-center row registrationData" style={{ fontWeight: "700" }}>
-          <div className=""></div>
+          <div></div>
           <div
             className="col-sm-12 registrationtitle my-2"
             style={{ color: "#000", fontWeight: "700" }}
@@ -235,6 +230,7 @@ export default function NFTManagement() {
               }}
             />
           </div>
+
           <div className="cm_select_box">
             <FormControl className="cm_select_box" variant="outlined">
             <InputLabel id="nft_list_select_1">=카테고리=</InputLabel>
@@ -318,7 +314,7 @@ export default function NFTManagement() {
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
             />
           </div>
           <div className="col-sm-6  my-2 statusData2">
@@ -654,7 +650,7 @@ export default function NFTManagement() {
 
         <DialogActions className="d-flex justify-content-center mb-5 mt-2">
           <Button
-            fullwidth
+            fullwidth="true"
             onClick={handleAutoClose}
             style={{
               backgroundColor: "#183B56",

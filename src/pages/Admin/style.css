@@ -90,8 +90,10 @@ table.MuiTable-root tr td{
 .admin_edit .admin_grid .MuiGrid-item:nth-child(1) .makeStyles-list-100{
   max-width: 100%;
 }
-.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .makeStyles-list2-101{
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .makeStyles-list2-101,
+.admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiList-dense{
   max-width: 100%;
+  width: 100% !important;
 }
 .MuiGrid-align-items-xs-center.admin_grid{
   align-items: unset;
@@ -107,6 +109,8 @@ table.MuiTable-root tr td{
   color: rgb(83 118 255);
   font-size: 32px;
   font-weight: 300;
+  max-width: 50px;
+  min-height: 50px;
 }
 .makeStyles-content-3  .MuiFormHelperText-contained{
   position: absolute;
@@ -138,6 +142,95 @@ table.MuiTable-root tr td{
 }
 .statusData1 .MuiFormControl-root.MuiTextField-root{
   width: 100%;
+}
+
+.pagination-item,
+.pagination-item-active {
+  border: 1px solid #A9ABB0 !important;
+  padding: 5px 11px !important;
+  background-color: #fff !important;
+  font-size: 16px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: #C4C4C4;
+}
+.pagination-item-active{
+  background-color: #C4C4C4 !important;
+  color: #fff;
+}
+.admin_statusData{
+  max-width: 360px;
+}
+.admin_statusData > div + div{
+  margin-left: 15px;
+}
+.admin_edit label::before,
+.label_trangle::before,
+.nftcategoryedit_wrap label::before,
+.nft_setting_wrap label::before,
+.RegisterFrequance_wrap label::before,
+.EditFrequance_wrap label::before,
+.RegistrationOfNotice_wrap label::before,
+.EditNotice_wrap label::before,
+.policy_wrap label::before{
+  content: "\f0da";
+  font-family: FontAwesome;
+  margin-right: 3px;
+}
+.label_trangle::before{
+  margin-right: 5px;
+}
+.nftcategoryedit_wrap label.MuiFormControlLabel-root::before,
+.admin_edit label.MuiFormControlLabel-root::before,
+.nft_setting_wrap label.MuiFormControlLabel-root::before,
+.RegisterFrequance_wrap label.MuiFormControlLabel-root::before,
+.EditFrequance_wrap label.MuiFormControlLabel-root::before,
+.RegistrationOfNotice_wrap label.MuiFormControlLabel-root::before,
+.EditNotice_wrap label.MuiFormControlLabel-root::before{
+  content: none !important;
+}
+.cm_radio_btn svg:first-child{
+  fill: #A9ABB0;
+}
+.cm_radio_btn svg:last-child{
+  fill: #4477FF;
+}
+.cm_edit_btn{
+  display: flex;
+  align-items: center;
+}
+.cm_edit_btn > div + div{
+  margin-left: 15px;
+}
+.MuiMenu-list{
+  border: 1px solid #000 !important;
+}
+.MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover{
+  background-color: #5376FF !important;
+}
+.MuiSelect-selectMenu{
+  text-align: left !important;
+}
+.total_transactions_wrap p{
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  margin: 0px;
+}
+.total_transactions_wrap{
+  margin-top: 35px;
+}
+.total_transactions_inner{
+  padding-left: 20px;
+}
+.total_transactions_inner > p{
+  margin-top: 10px;
+}
+.nftcategoryedit_wrap .cm_radio_btn label + label{
+  margin-left: 20px;
 }
 
 @media screen and (max-width:1680px){
@@ -178,13 +271,16 @@ table.MuiTable-root tr td{
     width: 100px;
   }
   .statusData .MuiFormControl-fullWidth {
-    width: 50% !important;
+    width: calc(50% - 8px) !important;
   }
   .statusData {
     max-width: 290px;
   }
 }
 @media screen and (max-device-width:1080px){
+  .UserList_wrap .statusData1 {
+      margin-left: 0;
+  }
   .registrationData,
   .statusWrap{
     justify-content: flex-start;
@@ -227,6 +323,10 @@ table.MuiTable-root tr td{
   }
   .admin_edit .MuiFormLabel-root{
     margin-top: 12px;
+  }
+  .admin_edit .MuiButton-outlined.Mui-disabled {
+    max-width: 45px;
+    min-height: 45px;
   }
 }
 @media screen and (max-width:767px){
@@ -276,5 +376,14 @@ table.MuiTable-root tr td{
   }
   .admin_edit .admin_grid .MuiGrid-item:nth-child(3) .MuiButton-containedPrimary {
     width: 70px !important;
+  }
+  .admin_statusData{
+    flex-wrap: wrap;
+  }
+  .admin_statusData > div + div{
+    margin-top: 10px;
+  }
+  .admin_statusData > div + div{
+    margin-left: 0px;
   }
 }

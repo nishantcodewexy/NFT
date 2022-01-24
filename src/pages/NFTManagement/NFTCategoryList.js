@@ -7,28 +7,28 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect } from "react";
 import { allCategory } from "../../actions/nft.action";
 import Pagination from "components/Paginations/Pagination";
-import Search from "antd/lib/transfer/search";
 import { Link } from "react-router-dom";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 export default function NFTCategoryList() {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }
 
-  const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9)
-  ];
+  // const rows = [
+  //   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  //   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  //   createData("Eclair", 262, 16.0, 24, 6.0),
+  //   createData("Cupcake", 305, 3.7, 67, 4.3),
+  //   createData("Gingerbread", 356, 16.0, 49, 3.9)
+  // ];
 
   const useStyles = makeStyles({
     table: {
@@ -74,8 +74,8 @@ export default function NFTCategoryList() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px"}}>NFT 목록</div>
+    <div className="mx-3 mx-md-5 nft_category_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color : "#000"}}>NFT 목록</div>
 
       <div style={{ display: "flex", margin: "2% 0" }}>
         <div style={{ flex: "1" }}>
@@ -90,79 +90,84 @@ export default function NFTCategoryList() {
         <div style={{ flex: "8" }}></div>
       </div>
 
-      <div
-        className="align-items-center mt-2"
-        style={{ fontWeight: "700", display: "flex" }}
-      >
-        <div style={{ flex: "6" }}></div>
-        <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-          <TextField
-            id="filled-select-currency"
-            select
-            name="used"
-            placeholder="=상태="
-            value={serach.used}
-            variant="outlined"
-            onChange={handleChange}
-            helperText="=사용 여부="
-            style={{ width: "150px", margin: "0 5px" }}
-          >
-            <MenuItem value="">Default</MenuItem>
-            <MenuItem value="사용함">사용함</MenuItem>
-            <MenuItem value="사용안함">사용안함</MenuItem>
-          </TextField>
 
-          <TextField
-            id="filled-select-currency"
-            select
-            name="option"
-            value={serach.option}
-            placeholder="=상태="
-            variant="outlined"
-            helperText="검색옵션"
-            onChange={handleChange}
-            style={{ width: "150px" }}
-          >
-            <MenuItem value="">Default</MenuItem>
-            <MenuItem value="상태">Category name</MenuItem>
-          </TextField>
+      <div
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
+          style={{ fontWeight: "700", display: "flex" }}
+        >
+          <div></div>
+          <div className="statusData select-box">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="nft_cat_select_1">=상태=</InputLabel>
+                <Select
+                  labelId="nft_cat_select_1"
+                  id="nft-cat-select-1"
+                  label="=상태="
+                  name="used"
+                  value={serach.used}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">Default</MenuItem>
+                  <MenuItem value="상태">Category name</MenuItem>
+                </Select>
+            </FormControl>
+
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="nft_cat_select_2">=상태=</InputLabel>
+                <Select
+                  labelId="nft_cat_select_2"
+                  id="nft-cat-select-2"
+                  label="=상태="
+                  onChange={handleChange}
+                  name="option"
+                  value={serach.option}
+                >
+                  <MenuItem value="">Default</MenuItem>
+                  <MenuItem value="상태">Category name</MenuItem>
+                </Select>
+            </FormControl>
+          </div>
+
+          <div className="col-sm-12  my-2 statusData1">
+            <TextField
+              id="filled-select-currency"
+              placeholder="검색옵션을 선택해주세요."
+              variant="outlined"
+              fullwidth="true"
+              name="text"
+              value={serach.text}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-6  my-2 statusData2">
+            <Button
+              style={{
+                backgroundColor: "#5376FF",
+                color: "#fff",
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
+              }}
+            >
+              {" "}
+              검색{" "}
+            </Button>
+          </div>
+          <div className="col-sm-6 my-2 statusData2">
+            <Button
+              style={{
+                backgroundColor: "#fff",
+                color: "#5376FF",
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
+              }}
+            >
+              {" "}
+              초기화{" "}
+            </Button>
+          </div>
         </div>
-        <div style={{ flex: "3" }}>
-          <TextField
-            id="filled-select-currency"
-            placeholder="검색옵션을 선택해주세요."
-            variant="outlined"
-            fullwidth
-            name="text"
-            value={serach.text}
-            onChange={handleChange}
-          />
-        </div>
-        <div style={{ flex: "1" }}>
-          <Button
-            style={{
-              backgroundColor: "#5376FF",
-              color: "#fff",
-              padding: "0 2px"
-            }}
-          >
-            {" "}
-            검색{" "}
-          </Button>
-        </div>
-        <div style={{ flex: "1" }}>
-          <Button
-            style={{
-              backgroundColor: "#fff",
-              color: "#5376FF",
-              padding: "0 2px"
-            }}
-          >
-            {" "}
-            초기화{" "}
-          </Button>
-        </div>
-      </div>
 
       <div style={{ fontWeight: "500" }}>Total : 14 Count (1/1)Page</div>
 
@@ -190,10 +195,10 @@ export default function NFTCategoryList() {
                 })
               */
                 .filter((val) => {
-                  if (serach.text == "" || serach.option == "") {
+                  if (serach.text === "" || serach.option === "") {
                     return val;
                   } else if (serach.option === "상태") {
-                    if (serach.text == "") {
+                    if (serach.text === "") {
                       return val;
                     } else if (val.category_name.includes(serach.text)) {
                       return val;

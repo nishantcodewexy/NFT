@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import { FormControlLabel } from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
 
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -17,10 +10,6 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 
-import historyImage from "../../images/item_3.png";
-import { EditNFT } from "actions/nft.action";
-import { getAllNFT } from "actions/nft.action";
-import { getANFT } from "actions/nft.action";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -70,9 +59,9 @@ export default function NFTModification() {
   };
 
   return (
-    <div className="mx-3 mx-md-5">
+    <div className="mx-3 mx-md-5 nft_modification_wrap">
       <div style={{ fontWeight: "700", fontSize: "40px" }}>
-        NFT 수정 (카테고리 정보만 변경 가능합니다.)
+        NFT 수정 <span className="mf_red_text">(카테고리 정보만 변경 가능합니다.)</span>
       </div>
       <div
         className="mt-5 row"
@@ -87,7 +76,7 @@ export default function NFTModification() {
             fullWidth
             disabled
             value={details.title}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
           />
         </div>
         <div className="col-lg-4">
@@ -96,10 +85,10 @@ export default function NFTModification() {
             id="filled-select-currency"
             placeholder="예술품"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             name="category_name"
             value={details.category_name}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             onChange={handleChange}
           />
         </div>
@@ -110,7 +99,7 @@ export default function NFTModification() {
             placeholder="고정가격"
             variant="outlined"
             value={details.selling_available}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             disabled
           />
         </div>
@@ -126,9 +115,9 @@ export default function NFTModification() {
             id="filled-select-currency"
             placeholder="드랙퀸"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             value={details.creator.creator_nickname}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             disabled
           />
         </div>
@@ -138,20 +127,20 @@ export default function NFTModification() {
             id="filled-select-currency"
             placeholder="집중하는 소년"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             value={details.current_owner.current_owner_email}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             disabled
           />
         </div>
-        <div className="col-lg-4 px-5">
+        <div className="col-lg-4">
           <label style={{ color: "#000" }}> 판매 History </label> <br />
           <Button
             style={{
               color: "#5376FF",
               border: "2px solid #5376FF",
-              width: "250px"
             }}
+            className="nft_mf_btn"
             variant="contained"
             fullWidth
           >
@@ -174,10 +163,10 @@ export default function NFTModification() {
           <TextField
             id="filled-select-currency"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             placeholder="ETH"
             value={details.coin_name}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             disabled
           />
         </div>
@@ -186,17 +175,19 @@ export default function NFTModification() {
           <TextField
             id="filled-select-currency"
             variant="outlined"
-            fullwidth
+            fullwidth="true"
             placeholder="1.213 ETH"
             value={details.sale_price}
-            style={{ width: "300px" }}
+            className="nft_mf_inpit"
             disabled
           />
         </div>
       </div>
 
-      <div className="mt-5">
-        <label style={{ color: "#000" }}> 로열티 10% </label> <br />
+      <div className="mt-5 col-12 roality_wrap">
+        <div className="row">
+          <label style={{ color: "#000" }}> 로열티 10% </label> <br />  
+        </div>
         <div
           className="row mt-2"
           style={{
@@ -206,171 +197,21 @@ export default function NFTModification() {
             width: "100%"
           }}
         >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
+          <div className="roalaity_input d-flex" >
+            <div className="pr-1 roalaity_left_input">
               <TextField
                 id="filled-select-currency"
                 variant="outlined"
-                fullwidth
+                fullwidth="true"
                 placeholder="1.213 ETH"
                 disabled
               />
             </div>
-            <div className="pl-1" style={{ flex: "3" }}>
+            <div className="pl-1 roalaity_right_input">
               <TextField
                 id="filled-select-currency"
                 variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="row mt-1"
-          style={{
-            fontWeight: "700",
-            fontSize: "18px",
-            display: "flex",
-            width: "100%"
-          }}
-        >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-            <div className="pl-1" style={{ flex: "3" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="row mt-1"
-          style={{
-            fontWeight: "700",
-            fontSize: "18px",
-            display: "flex",
-            width: "100%"
-          }}
-        >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-            <div className="pl-1" style={{ flex: "3" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="row mt-1"
-          style={{
-            fontWeight: "700",
-            fontSize: "18px",
-            display: "flex",
-            width: "100%"
-          }}
-        >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-            <div className="pl-1" style={{ flex: "3" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="row mt-1"
-          style={{
-            fontWeight: "700",
-            fontSize: "18px",
-            display: "flex",
-            width: "100%"
-          }}
-        >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-            <div className="pl-1" style={{ flex: "3" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="row mt-1"
-          style={{
-            fontWeight: "700",
-            fontSize: "18px",
-            display: "flex",
-            width: "100%"
-          }}
-        >
-          <div className="col-lg-4 d-flex">
-            <div className="pr-1" style={{ flex: "1" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
-                placeholder="1.213 ETH"
-                disabled
-              />
-            </div>
-            <div className="pl-1" style={{ flex: "3" }}>
-              <TextField
-                id="filled-select-currency"
-                variant="outlined"
-                fullwidth
+                fullwidth="true"
                 placeholder="1.213 ETH"
                 disabled
               />
@@ -380,7 +221,7 @@ export default function NFTModification() {
       </div>
 
       <div
-        className="row mt-5"
+        className="mt-5 modification_all_btn"
         style={{
           fontWeight: "700",
           fontSize: "18px",
@@ -388,11 +229,11 @@ export default function NFTModification() {
           width: "100%"
         }}
       >
-        <div className="col-lg-1">
+        <div className="modification_left_btn">
           <Button
             style={{
               backgroundColor: "#5376FF",
-              width: "100px",
+              maxWidth: "100px",
               height: "auto"
             }}
             variant="contained"
@@ -401,13 +242,11 @@ export default function NFTModification() {
           >
             저장
           </Button>
-        </div>
-        <div className="col-lg-1">
           <Button
             style={{
               border: "1px solid #5376FF",
               color: "#5376FF",
-              width: "100px",
+              maxWidth: "100px",
               height: "auto",
               backgroundColor: "transparent"
             }}
@@ -417,23 +256,19 @@ export default function NFTModification() {
             목록
           </Button>
         </div>
-        <div className="col-lg-9"></div>
-        <div className="col-lg-1">
-          <Button
-            style={{
-              backgroundColor: "#5376FF",
-              width: "100px",
-              height: "auto"
-            }}
-            variant="contained"
-            color="primary"
-          >
-            Burn NFT
-          </Button>
-        </div>
-        <div className="col-lg-10"></div>
+        <Button
+              style={{
+                backgroundColor: "#5376FF",
+                maxWidth: "100px",
+                Width: "100%",
+                height: "auto"
+              }}
+              variant="contained"
+              color="primary"
+            >
+              Burn NFT
+        </Button>
       </div>
-
       <Dialog
         open={open}
         TransitionComponent={Transition}

@@ -1,0 +1,10 @@
+.my_profile_wrap label::before {
+    content: "\f0da";
+    font-family: FontAwesome;
+    margin-right: 2px;
+}
+@media only screen and (max-width: 1440px) {
+    .my_profile_wrap .react-tel-input .form-control{
+        max-width: 100%;
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import { MenuItem, InputLabel, Select } from '@material-ui/core';
@@ -21,7 +21,6 @@ import { getCurrencyDropDown } from '../../actions/currency';
 
 
 // import lib
-import isEmpty from '../../lib/isEmpty';
 import { toastAlert } from '../../lib/toastAlert'
 
 const styles = {

@@ -8,9 +8,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
@@ -22,7 +20,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
-import historyImage from '../../images/item_3.png';
  const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -54,19 +51,19 @@ const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
 
-  const [open2, setOpen2] = React.useState(false);
+  // const [open2, setOpen2] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClickOpenHistory = () => {
-    setOpen2(true);
-  };
+  // const handleClickOpenHistory = () => {
+  //   setOpen2(true);
+  // };
 
   const handleAutoClose = () => {
     setOpen(false);
-    setOpen2(false);
+    // setOpen2(false);
   }
 
 
@@ -74,7 +71,7 @@ const classes = useStyles();
         <div>
 
          <div className="mx-3 mx-md-5">
-            <div style={{fontWeight:"700", fontSize:"40px"}}>
+            <div style={{fontWeight:"700", fontSize:"40px", color: "#000"}}>
                 공지사항 목록
             </div>
 
@@ -173,7 +170,7 @@ const classes = useStyles();
                     id="filled-select-currency"
                     placeholder="검색옵션을 선택해주세요."
                     variant="outlined"
-                    fullwidth
+                    fullwidth="true"
                 />
             </div>
             <div style={{flex:"1"}}>

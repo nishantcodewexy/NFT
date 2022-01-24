@@ -1,14 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
-import { DataGrid, RowsProp, ColDef } from '@material-ui/data-grid';
 import { Paper, Button } from '@material-ui/core';
-import {
-    Edit as EditIcon,
-    Visibility as VisibilityIcon
-} from '@material-ui/icons';
 
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";

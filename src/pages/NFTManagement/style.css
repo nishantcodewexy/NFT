@@ -56,7 +56,108 @@
 .work_history table tr td{
     width: 16.67%;
 }
-.work_history .makeStyles-table-93{
+.work_history table.MuiTable-root{
+    min-width: 100%;
+    border: 1px solid #A9ABB0;
+}
+.nft_modification_wrap table.MuiTable-root,
+.nft_category_wrap table.MuiTable-root,
+.popularList_wrap table.MuiTable-root{
+    border: 1px solid #A9ABB0;
+}
+.work_history .MuiDialog-paperWidthSm {
+    max-width: 562px;
+}
+.MuiDialogActions-spacing > :not(:first-child){
+    margin-left: 15px !important;
+}
+.nft_mf_inpit,
+.nft_mf_btn{
+    max-width: 300px;
+    width: 100%;
+}
+.MuiButton-contained.nft_mf_btn{
+    background-color: #fff;
+}
+.nft_mf_inpit{
+    background-color: #F0F0F0;
+}
+.mf_red_text{
+    font-size: 18px;
+    color: red;
+    font-weight: 400;
+}
+.modification_all_btn{
+    display: flex;
+    justify-content: space-between;
+}
+.modification_left_btn{
+    display: flex;
+    align-items: center;
+}
+.modification_left_btn button + button{
+    margin-left: 15px;
+}
+.roalaity_input{
+    width: 100%;
+}
+.roalaity_left_input{
+    max-width: 120px;
+    width: 100%;
+}
+.roalaity_right_input{
+    max-width: 460px;
+    width: 100%;
+}
+.roalaity_left_input input,
+.roalaity_right_input input,
+.roalaity_right_input .MuiFormControl-root{
+    width: 100%;
+    background-color: #F0F0F0;
+    color: #A9ABB0;
+    font-weight: bold;
+}
+.nft_modification_wrap label{
+    position: relative;
+}
+.nft_modification_wrap label::before{
+    content: "\f0da";
+    font-family: FontAwesome;
+    margin-right: 2px;
+}
+.nft_transaction_wrap .registrationdate > div,
+.nft_transaction_wrap .registrationminus > div{
+    width: 100%;
+    margin-right: 0px;
+}
+.nft_transaction_wrap .registrationminus > div{
+    display: flex;
+    justify-content: center;
+}
+.nft_transaction_wrap .MuiSelect-select{
+    text-align: left;
+}
+.nft_transaction_wrap .select-box > div + div,
+.nft_transaction_wrap .statusData1{
+    margin-left: 15px;
+}
+.nft_mangment_wrapper .statusWrap_1 button,
+.nft_mangment_wrapper .statusData2 button,
+.nft_transaction_wrap .statusWrap_1 button, 
+.nft_transaction_wrap .statusData2 button,
+.nft_category_wrap .statusData_1 button,
+.nft_category_wrap .statusData2 button{
+    height: 100%;
+    height: 56px;
+}
+.ne_save_btn_wrap > button{
+    margin-right: 15px;
+}
+.nftcategoryedit_title{
+    line-height: 1.5;
+}
+.nft_cat_input{
+    max-width: 300px;
     width: 100%;
 }
 
@@ -73,6 +174,9 @@
         margin-left: 10px;
         margin-right: 0px;
     }
+    .nft_mf_inpit{
+        max-width: 100%;
+    }
 }
 @media only screen and (max-width: 1080px) {
     .nft_mangment_wrapper .statusData{
@@ -81,17 +185,27 @@
     .nft_mangment_wrapper .statusData .cm_select_box + .cm_select_box{
         margin-left: 10px;
     }
+    .nft_transaction_wrap .select-box > div + div, .nft_transaction_wrap .statusData1{
+        margin-left: 0px;
+    }
     .nft_mangment_wrapper .registrationdate > div.MuiFormControl-root{
         width: 100%;
+    }
+    .nft_transaction_wrap .statusWrap_1 .statusData.select-box div + div{
+        margin-left: 10px;
     }
 }
 @media only screen and (max-width: 767px) {
     .nft_mangment_wrapper .registrationdate > div.MuiFormControl-root{
         width: 100%;
     }
-    .nft_mangment_wrapper .registrationminus{
+    .nft_mangment_wrapper .registrationminus,
+    .nft_transaction_wrap .registrationminus{
         display: flex;
         justify-content: center;
+    }
+    .nft_transaction_wrap .registrationdate_2{
+        margin: 10px 0;
     }
 }
 @media only screen and (max-width: 575px) {
@@ -119,5 +233,36 @@
     .statusData1 .MuiFormControl-root{
         min-width: 100% !important;
         width: 100% !important;
+    }
+    .mf_red_text{
+        display: flex;
+        margin-top: 12px;
+    }
+    .roalaity_input{
+        flex-direction: column;
+    }
+    .roalaity_right_input{
+        padding: 0 !important;
+        margin-top: 7px;
+    }
+    .roality_wrap .row + .row{
+        margin-top: 15px !important;
+    }
+    .nft_transaction_wrap .statusWrap_1 .statusData.select-box div + div,
+    .nft_category_wrap .statusWrap_1 .statusData.select-box div + div{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .nft_cat_input{
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .modification_all_btn {
+        flex-direction: column;
+        align-items: center;
+    }
+    .modification_left_btn{
+        margin-bottom: 10px;
     }
 }

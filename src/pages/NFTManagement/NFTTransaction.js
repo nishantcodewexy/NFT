@@ -7,9 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "components/Paginations/Pagination";
@@ -21,13 +19,15 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 import TableToExcel from "react-html-table-to-excel";
 
 import "../../style/login.css";
 import historyImage from "../../images/item_3.png";
-import { getAllNFT, stoppedChange } from "actions/nft.action";
-import { getAnAdmin } from "actions/admin";
-import axios from "axios";
+import { stoppedChange } from "actions/nft.action";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -111,7 +111,6 @@ export default function NFTTransaction() {
     setOpen2(false);
   };
 
-  console.log(nft);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPage = indexOfLastPost - postsPerPage;
@@ -149,11 +148,11 @@ export default function NFTTransaction() {
 
   return (
     <div>
-      <div className="mx-3 mx-md-5">
-        <div style={{ fontWeight: "700", fontSize: "40px" }}>NFT 목록</div>
+      <div className="mx-3 mx-md-5 nft_transaction_wrap">
+        <div style={{ fontWeight: "700", fontSize: "40px", color : "#000" }}>NFT 목록</div>
 
-        <div style={{ display: "flex", margin: "2% 0" }}>
-          <div style={{ flex: "1" }}>
+        <div className="row mt-2">
+            <div className="excel_btn">
             <TableToExcel
               className="excel-download-button"
               table="nft-table"
@@ -166,134 +165,155 @@ export default function NFTTransaction() {
         </div>
 
         <div
-          className="align-items-center"
+          className="align-items-center row registrationData"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "7", margin: "0 10px" }}></div>
-          <div style={{ margin: "0 10px", color: "#000", fontWeight: "700" }}>
+          <div></div>
+          <div style={{ color: "#000", fontWeight: "700" }} className="col-sm-12 registrationtitle my-2">
             등록일 기간 검색
           </div>
-          <div style={{ margin: "0 0 0 10px" }}>
+
+
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
+              type="text"
               name="from"
               onChange={handleChange}
-              label="시작일"
+              placeholder="시작일"
               className={classes.textField}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               InputLabelProps={{
                 shrink: true
               }}
             />
           </div>
 
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{
-              backgroundColor: "#A9ABB0",
-              width: "55px",
-              height: "55px",
-              borderRadius: "3px",
-              textAlign: "center"
-            }}
-          >
-            ~
+          <div className="col-sm-12 col-lg-1 registrationminus">
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{
+                backgroundColor: "#A9ABB0",
+                width: "55px",
+                height: "55px",
+                borderRadius: "3px",
+                textAlign: "center"
+              }}
+            >
+              ~
+            </div>
           </div>
-
-          <div>
+          <div className="col-sm-12 col-lg-2 registrationdate registrationdate_2">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
-              label="종료일"
+              type="text"
+              placeholder="종료일"
               name="to"
               onChange={handleChange}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true
               }}
             />
           </div>
-          <div>
-            <TextField
-              id="filled-select-currency"
-              select
-              placeholder="=상태="
-              variant="outlined"
-              style={{ width: "150px", margin: "0 5px" }}
-              name="category"
-              value={serach.category}
-              onChange={handleChange}
-            >
-              <MenuItem value=""> </MenuItem>
-              <MenuItem value="게임">=게임=</MenuItem>
-              <MenuItem value="예술">예술</MenuItem>
-              <MenuItem value="트레이딩 카드">트레이딩 카드</MenuItem>
-              <MenuItem value="음악">음악</MenuItem>
-              <MenuItem value="도메인 이름">도메인 이름</MenuItem>
-              <MenuItem value="짤">짤</MenuItem>
-              <MenuItem value="수집품">수집품</MenuItem>
-            </TextField>
+          
+          <div className="cm_select_box">
+            <FormControl className="cm_select_box" variant="outlined">
+            <InputLabel id="nft_list_select_1">=카테고리=</InputLabel>
+              <Select
+                labelId="nft_list_select_1"
+                id="nft-simple-select-1"
+                label="=카테고리="
+                name="category"
+                value={serach.category}
+                onChange={handleChange}
+              >
+                <MenuItem value=""> Default </MenuItem>
+                <MenuItem value="Game">Game</MenuItem>
+                <MenuItem value="Art">ART</MenuItem>
+                <MenuItem value="Trading card">Trading card</MenuItem>
+                <MenuItem value="Music">Music</MenuItem>
+                <MenuItem value="Domain name">Domain name</MenuItem>
+                <MenuItem value="Meme">Meme</MenuItem>
+                <MenuItem value="Collectibles">Collectibles</MenuItem>
+              </Select>
+            </FormControl>
           </div>
         </div>
 
         <div
-          className="align-items-center mt-2"
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "6" }}></div>
-          <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-            <TextField
-              id="filled-select-currency"
-              select
-              placeholder="=상태="
-              variant="outlined"
-              style={{ width: "150px", margin: "0 5px" }}
-            >
-              <MenuItem>=상태=</MenuItem>
-              <MenuItem>활성</MenuItem>
-              <MenuItem>비활성</MenuItem>
-            </TextField>
+          <div></div>
+          <div className="statusData select-box">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="nft_tran_select_1">=상태=</InputLabel>
+                <Select
+                  labelId="nft_tran_select_1"
+                  id="nft-tran-simple-select-1"
+                  label="=상태="
+                  name="status"
+                  value={serach.status}
+                  onChange={handleChange}
+                >
+                <MenuItem>=상태=</MenuItem>
+                <MenuItem>활성</MenuItem>
+                <MenuItem>비활성</MenuItem>
+                </Select>
+            </FormControl>
 
-            <TextField
-              id="filled-select-currency"
-              select
-              placeholder="=상태="
-              variant="outlined"
-              style={{ width: "150px" }}
-            >
-              <MenuItem>=검색옵션=</MenuItem>
-              <MenuItem>아이디</MenuItem>
-              <MenuItem>이름</MenuItem>
-            </TextField>
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="nft_tran_select_2">=상태=</InputLabel>
+                <Select
+                  labelId="nft_tran_select_2"
+                  id="nft-tran-simple-select-1"
+                  label="=상태="
+                  onChange={handleChange}
+                  name="coin"
+                  value={serach.coin}
+                >
+                <MenuItem>=검색옵션=</MenuItem>
+                <MenuItem>아이디</MenuItem>
+                <MenuItem>이름</MenuItem>
+                </Select>
+            </FormControl>
           </div>
-          <div style={{ flex: "3" }}>
+          <div className="col-sm-12  my-2 statusData1">
             <TextField
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
             />
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6  my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#5376FF",
                 color: "#fff",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
             >
               {" "}
               검색{" "}
             </Button>
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6 my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#fff",
                 color: "#5376FF",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
             >
               {" "}
@@ -379,6 +399,14 @@ export default function NFTTransaction() {
             </TableBody>
           </Table>
         </TableContainer>
+
+        <div className="total_transactions_wrap">
+            <p>거래 총 합계 </p>
+            <div className="total_transactions_inner">
+                <p>KDC : 42.5218 (KDC)</p>
+                <p>KDG : 128.329 (KDG)</p>
+            </div>
+        </div>
 
         <div className="d-flex justify-content-center mt-5">
           <div>
@@ -531,7 +559,7 @@ export default function NFTTransaction() {
 
         <DialogActions className="d-flex justify-content-center mb-5 mt-2">
           <Button
-            fullwidth
+            fullwidth="true"
             onClick={handleAutoClose}
             style={{
               backgroundColor: "#183B56",

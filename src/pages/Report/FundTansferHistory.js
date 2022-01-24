@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
-import { DataGrid, RowsProp, ColDef } from '@material-ui/data-grid';
-import { Paper, Button } from '@material-ui/core';
+import { DataGrid } from '@material-ui/data-grid';
+import { Paper } from '@material-ui/core';
 
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -16,9 +15,6 @@ import CardBody from "components/Card/CardBody.js";
 // import action
 import { getFundTransferHistory } from './../../actions/report';
 
-// import lib
-import { transactionStatus } from '../../lib/statusCode';
-import { toastAlert } from '../../lib/toastAlert';
 
 const styles = {
     cardCategoryWhite: {

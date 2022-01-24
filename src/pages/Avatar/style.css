@@ -1,0 +1,35 @@
+.admin_statusData {
+    max-width: 300px;
+}
+.avtar_list_wrap .admin_statusData{
+    max-width: 300px;
+}
+.avtar_list_wrap .admin_statusData > div + div{
+    margin-left: 0px;
+}
+.avatar_save_btn > button{
+    margin-right: 15px;
+}
+.ne_save_btn_wrap > a:first-child{
+    margin-right: 15px;
+}
+
+@media screen and (max-device-width: 1080px){
+    .avtar_list_wrap .admin_statusData{
+        max-width: 100%;
+    }
+    .avtar_list_wrap .statusData1{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-device-width: 1080px){
+    .avtar_list_wrap .statusData1{
+        padding-left: 0px !important;
+    }
+}
+@media screen and (max-device-width: 575px){
+    .avtar_list_wrap .statusData1,
+    .avtar_list_wrap .statusData2{
+        padding-left: 0px !important;
+    }
+}

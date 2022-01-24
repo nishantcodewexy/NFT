@@ -12,8 +12,11 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination2 from "components/Paginations/Pagination2";
-import Slide from "@material-ui/core/Slide";
 import { getAllNotices } from "actions/notice.action";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import "./style.css";
 
 export default function NoticeList() {
   const useStyles = makeStyles({
@@ -55,14 +58,19 @@ export default function NoticeList() {
   };
 
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px" }}>NFT 목록</div>
+    <div className="mx-3 mx-md-5 noticeList_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>NFT 목록</div>
 
       <div style={{ display: "flex", margin: "2% 0" }}>
         <div style={{ flex: "1" }}>
           <Link to="/notice-register">
             <Button
-              style={{ backgroundColor: "#5376FF" }}
+              style={{ 
+                border: "1px solid #000",
+                color: "#000",
+                outline: "none",
+                backgroundColor: "#fff"
+              }}
               variant="contained"
               color="primary"
             >
@@ -73,136 +81,140 @@ export default function NoticeList() {
         <div style={{ flex: "8" }}></div>
       </div>
 
-      <div
-        className="align-items-center row"
-        style={{ fontWeight: "700", display: "flex" }}
-      >
-        <div
-          className="col-sm-12 col-lg-5"
-          style={{ flex: "7", margin: "0 10px" }}
-        ></div>
-        <div
-          className="col-sm-12 col-lg-2"
-          style={{ color: "#000", fontWeight: "700" }}
-        >
-          Registration Date Period Search
-        </div>
-        <div className="col-sm-12 col-lg-2 my-2">
-          <TextField
-            variant="outlined"
-            id="date"
-            type="date"
-            label="시작일"
-            name="from"
-            fullWidth
-            className="text-box"
-            onChange={handleChange}
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-        </div>
-        <div className="col-sm-12 col-lg-1 d-flex justify-content-center">
+      <div className="align-items-center row registrationData" style={{ fontWeight: "700" }}>
+          <div></div>
           <div
-            className="d-flex align-items-center justify-content-center"
-            style={{
-              backgroundColor: "#A9ABB0",
-              width: "55px",
-              height: "55px",
-              borderRadius: "3px"
-            }}
+            className="col-sm-12 registrationtitle my-2"
+            style={{ color: "#000", fontWeight: "700" }}
           >
-            ~
+            등록일 기간 검색
           </div>
-        </div>
-        <div className="col-sm-12 col-lg-2 my-3">
-          <TextField
-            variant="outlined"
-            id="date"
-            type="date"
-            label="종료일"
-            name="to"
-            fullWidth
-            onChange={handleChange}
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-        </div>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate">
+            <TextField
+              variant="outlined"
+              id="date"
+              type="text"
+              name="from"
+              onChange={handleChange}
+              placeholder="시작일"
+              className={classes.textField}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+          </div>
+
+          <div className="col-sm-12 col-lg-1 my-2 registrationminus">
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{
+                backgroundColor: "#A9ABB0",
+                width: "55px",
+                height: "55px",
+                borderRadius: "3px",
+                textAlign: "center"
+              }}
+            >
+              ~
+            </div>
+          </div>
+          <div className="col-sm-12 col-lg-2 my-2 registrationdate registrationdate_2">
+            <TextField
+              variant="outlined"
+              id="date"
+              type="text"
+              placeholder="종료일"
+              name="to"
+              onChange={handleChange}
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+          </div>
       </div>
 
-      <div
-        className="align-items-center mt-2"
-        style={{ fontWeight: "700", display: "flex" }}
-      >
-        <div style={{ flex: "6" }}></div>
-        <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-          <TextField
-            id="filled-select-currency"
-            select
-            name="used"
-            placeholder="=상태="
-            value={serach.used}
-            variant="outlined"
-            onChange={handleChange}
-            helperText="=사용 여부="
-            style={{ width: "150px", margin: "0 5px" }}
-          >
-            <MenuItem value="">Default</MenuItem>
-            <MenuItem value="사용함">사용함</MenuItem>
-            <MenuItem value="사용안함">사용안함</MenuItem>
-          </TextField>
 
-          <TextField
-            id="filled-select-currency"
-            select
-            name="option"
-            value={serach.option}
-            placeholder="=상태="
-            variant="outlined"
-            helperText="검색옵션"
-            onChange={handleChange}
-            style={{ width: "150px" }}
-          >
-            <MenuItem value="">Default</MenuItem>
-            <MenuItem value="상태">Title</MenuItem>
-          </TextField>
-        </div>
-        <div style={{ flex: "3" }}>
-          <TextField
-            id="filled-select-currency"
-            placeholder="검색옵션을 선택해주세요."
-            variant="outlined"
-            fullwidth
-            name="text"
-            value={serach.text}
-            onChange={handleChange}
-          />
-        </div>
-        <div style={{ flex: "1" }}>
-          <Button
-            style={{
-              backgroundColor: "#5376FF",
-              color: "#fff",
-              padding: "0 2px"
-            }}
-          >
-            {" "}
-            검색{" "}
-          </Button>
-        </div>
-        <div style={{ flex: "1" }}>
-          <Button
-            style={{
-              backgroundColor: "#fff",
-              color: "#5376FF",
-              padding: "0 2px"
-            }}
-          >
-            {" "}
-            초기화{" "}
-          </Button>
-        </div>
+      <div
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
+          style={{ fontWeight: "700", display: "flex" }}
+        >
+          <div></div>
+          <div className="statusData select-box">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="notic_select_1">사용 여부=</InputLabel>
+                <Select
+                  labelId="notic_select_1"
+                  id="notic-select-1"
+                  label="사용 여부="
+                  name="used"
+                  value={serach.used}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">Default</MenuItem>
+                  <MenuItem value="사용함">사용함</MenuItem>
+                  <MenuItem value="사용안함">사용안함</MenuItem>
+                </Select>
+            </FormControl>
+          </div>
+
+          <div className="col-sm-12 ml-2 my-2 statusData1">
+            <FormControl className="cm_select_box" variant="outlined">
+                <InputLabel id="nft_list_select_3">검색옵션</InputLabel>
+                  <Select
+                    labelId="nft_list_select_3"
+                    id="nft-simple-select-3"
+                    label="검색옵션"
+                    onChange={handleChange}
+                    name="option"
+                    value={serach.option}
+                  >
+                    <MenuItem value="">Default</MenuItem>
+                    <MenuItem value="상태">Title</MenuItem>
+                  </Select>
+              </FormControl>
+            <TextField
+              id="filled-select-currency"
+              placeholder="검색옵션을 선택해주세요."
+              variant="outlined"
+              fullwidth="true"
+              name="text"
+              value={serach.text}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-6  my-2 statusData2">
+            <Button
+              style={{
+                backgroundColor: "#5376FF",
+                color: "#fff",
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
+              }}
+            >
+              {" "}
+              검색{" "}
+            </Button>
+          </div>
+          <div className="col-sm-6 my-2 statusData2">
+            <Button
+              style={{
+                backgroundColor: "#fff",
+                color: "#5376FF",
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
+              }}
+            >
+              {" "}
+              초기화{" "}
+            </Button>
+          </div>
       </div>
 
       <div style={{ fontWeight: "500" }}>Total : 14 Count (1/1)Page</div>

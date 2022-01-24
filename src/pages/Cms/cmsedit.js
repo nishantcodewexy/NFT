@@ -24,7 +24,6 @@ import {  getsinglecms } from '../../actions/users'
 
 // import lib
 import fileObjectUrl from '../../lib/fileObjectUrl';
-import isEmpty from '../../lib/isEmpty';
 import { toastAlert } from '../../lib/toastAlert';
 
 const styles = theme => ({

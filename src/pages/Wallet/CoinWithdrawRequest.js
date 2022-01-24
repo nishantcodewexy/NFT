@@ -1,9 +1,8 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, {useEffect, useState } from 'react';
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
-import { DataGrid, RowsProp, ColDef } from '@material-ui/data-grid';
+import { DataGrid } from '@material-ui/data-grid';
 import { Paper, Button } from '@material-ui/core';
 import {
     Edit as EditIcon,

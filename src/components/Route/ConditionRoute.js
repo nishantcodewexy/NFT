@@ -29,7 +29,6 @@ const ConditionRoute = ({
         } else if (type == "private" && isLogin() != true) {
           return <Redirect to="/" />;
         } else if (authData.role != "superadmin") {
-          console.log(authData.restriction, "==============pathpath");
           if (authData.restriction && authData.restriction.length > 0) {
             let restrictionData = authData.restriction.find(
               (item) => item.path == props.match.path

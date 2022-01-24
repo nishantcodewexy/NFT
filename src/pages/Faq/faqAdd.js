@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -9,7 +8,6 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { useHistory } from "react-router-dom";
@@ -19,11 +17,9 @@ import customInputStyle from "assets/jss/material-dashboard-react/components/cus
 
 import 'react-phone-input-2/lib/style.css'
 
-//import avatar from "assets/img/faces/marc.jpg";
 import isEmpty from '../../lib/isEmpty';
 
 import { addFaq, getadminUsers } from '../../actions/users';
-import { TextField } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {

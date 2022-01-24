@@ -4,22 +4,16 @@ import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
 import { FormControlLabel } from "@material-ui/core";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import { addNewnotice } from "actions/notice.action";
 import { Link } from "react-router-dom";
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 export default function RegistrationOfNotice() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
   const [notice, setNotice] = useState({
     title: "",
@@ -28,13 +22,13 @@ export default function RegistrationOfNotice() {
     views: null
   });
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleAutoClose = () => {
-    setOpen(false);
-  };
+  // const handleAutoClose = () => {
+  //   setOpen(false);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,8 +43,8 @@ export default function RegistrationOfNotice() {
   };
 
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px" }}>공지사항 등록</div>
+    <div className="mx-3 mx-md-5 RegistrationOfNotice_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>고시 등록</div>
       <div className="row mt-5">
         <div className="col-lg-6">
           <label style={{ color: "#000" }}> 공지사항 제목</label> <br />
@@ -103,10 +97,10 @@ export default function RegistrationOfNotice() {
 
       <div className="row mt-5">
         <div className="col-lg-6">
-          <FormLabel style={{ color: "#000" }} component="legend">
+          <FormLabel style={{ color: "#000" }} component="legend" className="label_trangle">
             사용여부
           </FormLabel>
-          <RadioGroup>
+          <RadioGroup className="cm_radio_btn">
             <div style={{ display: "flex" }}>
               <FormControlLabel
                 style={{ color: "#000" }}
@@ -130,8 +124,9 @@ export default function RegistrationOfNotice() {
       </div>
 
       <div className="row mt-5">
-        <div className="col-lg-1">
-          <Button
+        <div className="col">
+          <div className="ne_save_btn_wrap">
+            <Button
             style={{
               backgroundColor: "#5376FF",
               width: "100px",
@@ -144,8 +139,7 @@ export default function RegistrationOfNotice() {
           >
             저장
           </Button>
-        </div>
-        <div className="col-lg-1">
+
           <Link to="/notice-list">
             <Button
               style={{
@@ -162,8 +156,8 @@ export default function RegistrationOfNotice() {
               목록
             </Button>
           </Link>
+          </div>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

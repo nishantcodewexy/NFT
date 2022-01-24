@@ -3,20 +3,15 @@ import { Link } from "react-router-dom";
 
 // import material UI
 import { makeStyles } from "@material-ui/core/styles";
-import { DataGrid, RowsProp, ColDef } from '@material-ui/data-grid';
+import { DataGrid } from '@material-ui/data-grid';
 import {
     Paper,
     Button,
     Dialog,
     DialogActions,
     DialogContent,
-    DialogContentText,
-    DialogTitle
+    DialogContentText
 } from '@material-ui/core';
-import {
-    Edit as EditIcon,
-    Delete as DeleteIcon
-} from '@material-ui/icons';
 
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";

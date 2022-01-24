@@ -13,10 +13,7 @@ import {
     DialogContentText,
     DialogTitle
 } from '@material-ui/core';
-import {
-    Edit as EditIcon,
-    Delete as DeleteIcon
-} from '@material-ui/icons';
+
 
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";

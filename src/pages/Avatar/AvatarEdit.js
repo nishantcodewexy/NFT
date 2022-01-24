@@ -3,9 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { FormControlLabel } from "@material-ui/core";
 import { useParams, Link } from "react-router-dom";
 import { getAAvatar } from "../../actions/avatar.action";
@@ -17,7 +14,7 @@ export default function AvatarEdit() {
     name: "",
     image: "",
     status: ""
-  });
+  }); 
 
   const [image, setImage] = useState();
 
@@ -32,8 +29,11 @@ export default function AvatarEdit() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     const formData = { ...avatar, ...{ [name]: value } };
+    console.log('formData', formData);
     setAvatar(formData);
   };
+
+  console.log(avatar);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -45,6 +45,8 @@ export default function AvatarEdit() {
       var formData = new FormData();
       formData.append("name", avatar.name);
       formData.append("status", avatar.status);
+
+      console.log(formData);
       for (let key = 0; key < image.length; key++) {
         formData.append("image", image[key]);
       }
@@ -99,7 +101,7 @@ export default function AvatarEdit() {
               style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}
             >
               {" "}
-              <i class="fas fa-caret-right"></i> Avata name
+              <i className="fas fa-caret-right"></i> Avata name
             </label>{" "}
             <br />
             <TextField
@@ -109,16 +111,17 @@ export default function AvatarEdit() {
               name="name"
               value={avatar.name}
               onChange={handleChange}
-              fullwidth
+              fullwidth="true"
               style={{ width: "300px" }}
             />
           </div>
+          
           <div className="mt-4">
             <label
               style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}
             >
               {" "}
-              <i class="fas fa-caret-right"></i> Avata image File
+              <i className="fas fa-caret-right"></i> Avata image File
             </label>{" "}
             <br />
             <div>
@@ -132,7 +135,7 @@ export default function AvatarEdit() {
                   setImage(e.target.files);
                   setPreview(URL.createObjectURL(e.target.files[0]));
                 }}
-                fullwidth
+                fullwidth="true"
                 style={{ width: "300px" }}
               />
             </div>
@@ -155,7 +158,7 @@ export default function AvatarEdit() {
         <div className="col-lg-6">
           <label style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}>
             {" "}
-            <i class="fas fa-caret-right"></i> Preview
+            <i className="fas fa-caret-right"></i> Preview
           </label>{" "}
           {preview == null ? (
             <img
@@ -189,7 +192,7 @@ export default function AvatarEdit() {
         <div className="col-lg-6">
           <label style={{ color: "#000", fontWeight: "700", fontSize: "16px" }}>
             {" "}
-            <i class="fas fa-caret-right"></i> Status
+            <i className="fas fa-caret-right"></i> Status
           </label>{" "}
           <RadioGroup>
             <div style={{ display: "flex" }}>
@@ -218,12 +221,11 @@ export default function AvatarEdit() {
         style={{
           fontWeight: "700",
           fontSize: "18px",
-          display: "flex",
-          width: "100%"
         }}
       >
-        <div className="col-lg-1">
-          <Link to="/admin-list">
+        <div className="col">
+          <div className="ne_save_btn_wrap">
+            <Link to="/admin-list">
             <Button
               onClick={handleSubmit}
               style={{
@@ -237,8 +239,6 @@ export default function AvatarEdit() {
               save
             </Button>
           </Link>
-        </div>
-        <div className="col-lg-1">
           <Link to="/avatar-list">
             <Button
               style={{
@@ -254,8 +254,8 @@ export default function AvatarEdit() {
               List
             </Button>
           </Link>
+          </div>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );

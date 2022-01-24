@@ -3,21 +3,14 @@ import clsx from 'clsx';
 // @material-ui/core components
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, FormControl, InputLabel, OutlinedInput, InputAdornment, Checkbox, FormControlLabel, Tooltip, Typography } from '@material-ui/core';
-import { Help } from '@material-ui/icons';
 // OutlinedInput id="otpv" type="text"
 // core components
-// import Header from "components/Header/Header.js";
-// import HeaderLinksInner from "components/Header/HeaderLinksInner.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Footer from "components/Footer/Footer.js";
-import twoFactor from 'node-2fa';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import CardFooter from "components/Card/CardFooter.js";
-import { Modal } from "react-bootstrap/";
-import CustomInput from "components/CustomInput/CustomInput.js";
 
 
 
@@ -137,7 +130,7 @@ export default function TFA(props) {
           <div className="inner_content_panel">
             <GridContainer>
               <GridItem sm={12} md={12} lg={12}>
-                <h2 class="inner_section_title">Two Factor Authentication<span>{ }</span></h2>
+                <h2 className="inner_section_title">Two Factor Authentication<span>{ }</span></h2>
                 <GridContainer className="tfa_panel">
                   <GridItem sm={12} md={7} lg={7}>
                     <div className="tfa_panel_div">

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
@@ -14,7 +13,6 @@ import "../../style/login.css";
 
 // import lib
 import validation from "./Validation";
-import isEmpty from "../../lib/isEmpty";
 
 import Slide from "@material-ui/core/Slide";
 
@@ -52,12 +50,12 @@ const initialFormValue = {
 };
 
 export default function SignIn() {
-  const classes = useStyles();
-  const history = useHistory();
+  // const classes = useStyles();
+  // const history = useHistory();
   const dispatch = useDispatch();
 
   const [formValue, setFormValue] = useState(initialFormValue);
-  const [toched, setToched] = useState({});
+  // const [toched, setToched] = useState({});
   const [validateError, setValidateError] = useState({});
 
   const [open, setOpen] = React.useState(false);

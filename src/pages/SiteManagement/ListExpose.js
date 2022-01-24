@@ -8,9 +8,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "components/Paginations/Pagination";
@@ -22,11 +20,14 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import { useEffect } from "react";
-import { getAllUsers } from "actions/users";
 import { addNewExpose } from "actions/expose.action";
 import { getAllExposes, deleteAExpose } from "actions/expose.action";
 import { stoppedChange } from "actions/nft.action";
 import { getAllNFT } from "actions/nft.action";
+
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -124,8 +125,8 @@ export default function PopularList() {
 
   return (
     <div>
-      <div className="mx-3 mx-md-5">
-        <div style={{ fontWeight: "700", fontSize: "40px" }}>
+      <div className="mx-3 mx-md-5 popularList_wrap">
+        <div style={{ fontWeight: "700", fontSize: "40px" }} className="popularList_title">
           인기 크리에이터 목록
         </div>
 
@@ -135,7 +136,8 @@ export default function PopularList() {
               style={{
                 border: "2px solid #5376FF",
                 color: "#5376FF",
-                outline: "none"
+                outline: "none",
+                whiteSpace: "nowrap"
               }}
               variant="contained"
               onClick={handleClickOpen}
@@ -146,62 +148,65 @@ export default function PopularList() {
           <div style={{ flex: "8" }}></div>
         </div>
 
+        
         <div
-          className="align-items-center"
+          className="align-items-center cm_sub_title"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "7", margin: "0 10px" }}></div>
-          <div style={{ margin: "0 10px", color: "#000", fontWeight: "700" }}>
+          <div style={{color: "#000", fontWeight: "700" }}>
             등록일 기간 검색
           </div>
         </div>
 
         <div
-          className="align-items-center mt-2"
+          className="align-items-center mt-2 p-0 statusWrap statusWrap_1"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div style={{ flex: "6" }}></div>
-          <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-            <TextField
-              id="filled-select-currency"
-              select
-              placeholder="=상태="
-              variant="outlined"
-              style={{ width: "150px" }}
-            >
-              <MenuItem>=검색옵션=</MenuItem>
-              <MenuItem>아이디</MenuItem>
-              <MenuItem>이름</MenuItem>
-            </TextField>
-          </div>
-          <div style={{ flex: "3" }}>
+          <div></div>
+          <div className="col-sm-12  my-2 statusData1">
+            <FormControl className="cm_select_box" variant="outlined">
+              <InputLabel id="member_list_select_5">=상태=</InputLabel>
+                <Select
+                  labelId="member_list_select_5"
+                  id="member-simple-select-5"
+                  label="=상태="
+                  // onChange={handleChange}
+                >
+                  <MenuItem>=검색옵션=</MenuItem>
+                  <MenuItem>아이디</MenuItem>
+                  <MenuItem>이름</MenuItem>
+                </Select>
+            </FormControl>
             <TextField
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
             />
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6  my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#5376FF",
                 color: "#fff",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
             >
               {" "}
               검색{" "}
             </Button>
           </div>
-          <div style={{ flex: "1" }}>
+          <div className="col-sm-6 my-2 statusData2">
             <Button
               style={{
                 backgroundColor: "#fff",
                 color: "#5376FF",
-                padding: "0 2px"
+                padding: "0 2px",
+                border: "1px solid #5376FF",
+                fontWeight: "bold"
               }}
-              onClick={handleClickOpenHistory}
             >
               {" "}
               초기화{" "}
@@ -305,115 +310,111 @@ export default function PopularList() {
         </DialogTitle>
 
         <DialogContent>
-          <DialogContentText>
-            <div
-              className="align-items-center mt-2"
-              style={{ fontWeight: "700", display: "flex" }}
-            >
-              <div style={{ flex: "6" }}></div>
-              <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
-                <TextField
-                  id="filled-select-currency"
-                  select
-                  placeholder="=상태="
-                  variant="outlined"
-                  style={{ width: "150px" }}
-                >
-                  <MenuItem>=검색옵션=</MenuItem>
-                  <MenuItem>아이디</MenuItem>
-                  <MenuItem>이름</MenuItem>
-                </TextField>
-              </div>
-              <div style={{ flex: "3" }}>
-                <TextField
-                  id="filled-select-currency"
-                  placeholder="검색옵션을 선택해주세요."
-                  variant="outlined"
-                  fullwidth
-                />
-              </div>
-              <div style={{ flex: "1" }}>
-                <Button
-                  style={{
-                    backgroundColor: "#5376FF",
-                    color: "#fff",
-                    padding: "0 2px"
-                  }}
-                  onClick={handleClickOpen}
-                >
-                  {" "}
-                  검색{" "}
-                </Button>
-              </div>
-              <div style={{ flex: "1" }}>
-                <Button
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#5376FF",
-                    padding: "0 2px"
-                  }}
-                >
-                  {" "}
-                  초기화{" "}
-                </Button>
-              </div>
+          <div
+            className="align-items-center mt-2"
+            style={{ fontWeight: "700", display: "flex" }}
+          >
+            <div style={{ flex: "6" }}></div>
+            <div style={{ flex: "5", color: "#000", fontWeight: "700" }}>
+              <TextField
+                id="filled-select-currency"
+                select
+                placeholder="=상태="
+                variant="outlined"
+                style={{ width: "150px" }}
+              >
+                <MenuItem>=검색옵션=</MenuItem>
+                <MenuItem>아이디</MenuItem>
+                <MenuItem>이름</MenuItem>
+              </TextField>
             </div>
-          </DialogContentText>
-          <DialogContentText>
-            <TableContainer component={Paper}>
-              <Table className={classes.table} aria-label="simple table">
-                <TableHead
-                  style={{
-                    backgroundColor: "#E5E5E5"
-                  }}
-                >
-                  <TableRow style={{ fontSize: "15px !important" }}>
-                    <TableCell>NO</TableCell>
-                    <TableCell align="right">PK</TableCell>
-                    <TableCell align="right">NFT 상품명</TableCell>
-                    <TableCell align="right">카테고리</TableCell>
-                    <TableCell align="right">판매형태</TableCell>
-                    <TableCell align="right">창작자</TableCell>
-                    <TableCell align="right">등록일시</TableCell>
-                    <TableCell align="right">삭제</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {nfts &&
-                    nfts.map((nft, index) => (
-                      <TableRow key={index + 1}>
-                        <TableCell component="th" scope="row">
-                          {index + 1}
-                        </TableCell>
-                        <TableCell align="right">{index + 1}</TableCell>
-                        <TableCell align="right">{nft.nftName}</TableCell>
-                        <TableCell align="right">{nft.originator}</TableCell>
-                        <TableCell align="right">{nft.owner}</TableCell>
-                        <TableCell align="right">
-                          <Button
-                            onClick={() => {
-                              addNewExpose(nft).then((res) => {
-                                res.status === "success" && alert("Success");
-                                renderingFunction();
-                              });
-                            }}
-                            style={{
-                              backgroundColor: "#5376FF",
-                              color: "#fff",
-                              padding: "0 2px",
-                              outline: "none"
-                            }}
-                          >
-                            {" "}
-                            검색{" "}
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </DialogContentText>
+            <div style={{ flex: "3" }}>
+              <TextField
+                id="filled-select-currency"
+                placeholder="검색옵션을 선택해주세요."
+                variant="outlined"
+                fullwidth="true"
+              />
+            </div>
+            <div style={{ flex: "1" }}>
+              <Button
+                style={{
+                  backgroundColor: "#5376FF",
+                  color: "#fff",
+                  padding: "0 2px"
+                }}
+                onClick={handleClickOpen}
+              >
+                {" "}
+                검색{" "}
+              </Button>
+            </div>
+            <div style={{ flex: "1" }}>
+              <Button
+                style={{
+                  backgroundColor: "#fff",
+                  color: "#5376FF",
+                  padding: "0 2px"
+                }}
+              >
+                {" "}
+                초기화{" "}
+              </Button>
+            </div>
+          </div>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead
+                style={{
+                  backgroundColor: "#E5E5E5"
+                }}
+              >
+                <TableRow style={{ fontSize: "15px !important" }}>
+                  <TableCell>NO</TableCell>
+                  <TableCell align="right">PK</TableCell>
+                  <TableCell align="right">NFT 상품명</TableCell>
+                  <TableCell align="right">카테고리</TableCell>
+                  <TableCell align="right">판매형태</TableCell>
+                  <TableCell align="right">창작자</TableCell>
+                  <TableCell align="right">등록일시</TableCell>
+                  <TableCell align="right">삭제</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {nfts &&
+                  nfts.map((nft, index) => (
+                    <TableRow key={index + 1}>
+                      <TableCell component="th" scope="row">
+                        {index + 1}
+                      </TableCell>
+                      <TableCell align="right">{index + 1}</TableCell>
+                      <TableCell align="right">{nft.nftName}</TableCell>
+                      <TableCell align="right">{nft.originator}</TableCell>
+                      <TableCell align="right">{nft.owner}</TableCell>
+                      <TableCell align="right">
+                        <Button
+                          onClick={() => {
+                            addNewExpose(nft).then((res) => {
+                              res.status === "success" && alert("Success");
+                              renderingFunction();
+                            });
+                          }}
+                          style={{
+                            backgroundColor: "#5376FF",
+                            color: "#fff",
+                            padding: "0 2px",
+                            outline: "none"
+                          }}
+                        >
+                          {" "}
+                          검색{" "}
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </DialogContent>
 
         <DialogContent>

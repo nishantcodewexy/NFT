@@ -7,22 +7,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import DeleteIcon from "@material-ui/icons/Delete";
-import FilterListIcon from "@material-ui/icons/FilterList";
 import { getAllUsers } from "./../../actions/users";
-import Search from "@material-ui/icons/Search";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.js";
 import TextField from "@material-ui/core/TextField";
@@ -39,6 +28,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
+import TableToExcel from "react-html-table-to-excel";
 import "./style.css";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -293,69 +283,83 @@ export default function EnhancedTable() {
   }, []);
 
   return (
-    <div className="mx-3 mx-md-5">
+    <div className="mx-3 mx-md-5 UserList_wrap">
       <div style={{ fontWeight: "700", fontSize: "40px" }}>회원 목록</div>
       <div>
         <div style={{ display: "flex", margin: "2% 0" }}>
-          <div className="col-sm-12 col-lg-4 my-2">
-            <Button
-              style={{ backgroundColor: "#5376FF" }}
-              variant="contained"
-              color="primary"
-              onClick={handleClickOpen}
-            >
-              등록
-            </Button>
+          
+
+          <div className="row mt-2">
+            <div className="excel_btn">
+              <TableToExcel
+                className="excel-download-button"
+                table="nft-table"
+                sheet="Sheet"
+                filename="Nft-details"
+                buttonText="EXCEL 다운로드"
+              />
+            </div>
+            <div style={{ flex: "8" }}></div>
           </div>
           <div style={{ flex: "8" }}></div>
         </div>
+
 
         <div
           className="align-items-center row registrationData"
           style={{ fontWeight: "700", display: "flex" }}
         >
-          <div className=""></div>
           <div
-            className="col-sm-12 registrationtitle my-2"
-            style={{ color: "#000", fontWeight: "700", textAlign: "left" }}
+            className="col-sm-12"
+            style={{ margin: "0 10px" }}
+          ></div>
+          <div
+            className="col-sm-12 registrationtitle"
+            style={{ color: "#000", fontWeight: "700" }}
           >
             등록일 기간 검색
           </div>
-          <div className="col-sm-12 col-lg-2 my-2 registrationdate">
+          <div className="col-sm-12 my-3 registrationdate">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
+              type="text"
               label="시작일"
-              fullWidth
-              className={classes.textField}
+              name="from"
+              fullWidth="true"
+              className="text-box"
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
+              placeholder="시작일"
               InputLabelProps={{
                 shrink: true
               }}
             />
           </div>
-          <div className="col-sm-12 my-2 d-flex justify-content-center registrationminus">
+          <div className="col-sm-12 d-flex justify-content-center registrationminus">
             <div
-              className="d-flex justify-content-center align-items-center"
+              className="d-flex align-items-center justify-content-center"
               style={{
                 backgroundColor: "#A9ABB0",
                 width: "55px",
                 height: "55px",
-                borderRadius: "3px",
-                textAlign: "center"
+                outline: "1px solid #A9ABB0"
               }}
             >
               ~
             </div>
           </div>
-          <div className="col-sm-12 my-2 registrationdate registrationdate_2">
+          <div className="col-sm-12 my-3 registrationdate registrationdate2">
             <TextField
               variant="outlined"
               id="date"
-              type="date"
+              type="text"
               label="종료일"
-              fullWidth
-              className={classes.textField}
+              name="to"
+              fullWidth="true"
+              onFocus={(e) => (e.currentTarget.type = "date")}
+              onBlur={(e) => (e.currentTarget.type = "text")}
+              placeholder="종료일"
               InputLabelProps={{
                 shrink: true
               }}
@@ -373,7 +377,7 @@ export default function EnhancedTable() {
               <MenuItem value={10}>활성화</MenuItem>
               <MenuItem value={20}>비활성</MenuItem>
             </Select>
-          </FormControl>
+            </FormControl>
         </div>
 
         <div
@@ -441,7 +445,7 @@ export default function EnhancedTable() {
               id="filled-select-currency"
               placeholder="검색옵션을 선택해주세요."
               variant="outlined"
-              fullwidth
+              fullwidth="true"
             />
           </div>
           <div className="col-sm-6  my-2 statusData2">
@@ -512,14 +516,14 @@ export default function EnhancedTable() {
                 <TableCell align="center"></TableCell>
                 <TableCell align="center"></TableCell>
                 <TableCell align="center">
-                  {user.updated_at.split("T")[0]}
+                  {user?.updated_at?.split("T")[0]}
                   {"  "}
-                  {user.updated_at.split("T")[1].split(".")[0]}
+                  {user?.updated_at?.split("T")[1].split(".")[0]}
                 </TableCell>
                 <TableCell align="right">
-                  {user.updated_at.split("T")[0]}
+                  {user?.updated_at?.split("T")[0]}
                   {"  "}
-                  {user.updated_at.split("T")[1].split(".")[0]}
+                  {user?.updated_at?.split("T")[1].split(".")[0]}
                 </TableCell>
                 <TableCell align="right">
                   <button className="editBtn"> Edit </button>

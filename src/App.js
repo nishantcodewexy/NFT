@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createBrowserHistory } from "history";
-import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
 
@@ -9,59 +9,56 @@ import Admin from "./components/layouts/Admin";
 import ConditionRoute from "./components/Route/ConditionRoute";
 import UsersList from "./pages/UsersList/UsersList";
 import Usersedit from "./pages/UsersList/useredit";
-import LoginHistory from "./pages/LoginHistory/loginHistory";
+// import LoginHistory from "./pages/LoginHistory/loginHistory";
 
-import EditProfile from "./pages/UserProfile/EditProfile";
-import securityType from "./pages/Settings/securityType";
-import EmailTemplate from "./pages/Emailtemplate/emailList";
-import EmailTemplateUpdate from "./pages/Emailtemplate/updateTemplate";
-import questiondetail from "./pages/Query/Questiondetailview";
-import reportdetail from "./pages/Query/Reportdetailview";
-import tokenreportdetail from "./pages/Query/Tokenreportdetailview";
-import Question from "./pages/Query/Question";
-import Report from "./pages/Query/Report";
-import Tokenreport from "./pages/Query/Tokenreport";
-import Replyemail from "./pages/Query/replymail";
+// import EditProfile from "./pages/UserProfile/EditProfile";
+// import securityType from "./pages/Settings/securityType";
+// import EmailTemplate from "./pages/Emailtemplate/emailList";
+// import EmailTemplateUpdate from "./pages/Emailtemplate/updateTemplate";
+// import questiondetail from "./pages/Query/Questiondetailview";
+// import reportdetail from "./pages/Query/Reportdetailview";
+// import tokenreportdetail from "./pages/Query/Tokenreportdetailview";
+// import Question from "./pages/Query/Question";
+// import Report from "./pages/Query/Report";
+// import Tokenreport from "./pages/Query/Tokenreport";
+// import Replyemail from "./pages/Query/replymail";
 import AdminAdd from "./pages/Admin/AdminAdd";
 import AdminEdit from "./pages/Admin/AdminEdit";
-import {
-  CurrencyList,
-  CurrencyAdd,
-  CurrencyEdit
-} from "./pages/CurrencyManagement";
-import {
-  SupportCategoryList,
-  SupportCategoryAdd,
-  SupportCategoryEdit,
-  TicketList,
-  TicketChat
-} from "./pages/Support";
-import { TradeHistory, WithdrawList, FundTansferHistory } from "./pages/Report";
-import { SportPairList, SportPairAdd, SportPairEdit } from "./pages/TradePairs";
-import {
-  CoinWithdrawRequest,
-  DepositRequest,
-  WithdrawRequest
-} from "./pages/Wallet";
-import { IdProof, SelfieProof, AddressProof } from "./pages/DocVerification";
-import { FeeSetting, ReferralHistory } from "./pages/Referral";
-import supportView from "./pages/Support/supportView";
-import burn from "./pages/burn/BurnList";
-import burnview from "./pages/burn/Burnview";
+// import {
+//   CurrencyList,
+//   CurrencyAdd,
+//   CurrencyEdit
+// } from "./pages/CurrencyManagement";
+// import {
+//   SupportCategoryList,
+//   SupportCategoryAdd,
+//   SupportCategoryEdit,
+//   TicketList,
+//   TicketChat
+// } from "./pages/Support";
+// import { TradeHistory, WithdrawList, FundTansferHistory } from "./pages/Report";
+// import { SportPairList, SportPairAdd, SportPairEdit } from "./pages/TradePairs";
+// import {
+//   CoinWithdrawRequest,
+//   DepositRequest,
+//   WithdrawRequest
+// } from "./pages/Wallet";
+// import { IdProof, SelfieProof, AddressProof } from "./pages/DocVerification";
+// import { FeeSetting, ReferralHistory } from "./pages/Referral";
+// import supportView from "./pages/Support/supportView";
+// import burn from "./pages/burn/BurnList";
+// import burnview from "./pages/burn/Burnview";
 
-import FaqAdd from "./pages/Faq/faqAdd";
-import FaqList from "./pages/Faq/faqList";
-import FaqUpdate from "./pages/Faq/faqUpdate";
+// import FaqAdd from "./pages/Faq/faqAdd";
+// import FaqList from "./pages/Faq/faqList";
+// import FaqUpdate from "./pages/Faq/faqUpdate";
 
 // import pages
 import LoginPage from "./pages/LoginPage/Login";
 import ForgotPage from "./pages/ForgotPage/ForgotPassword";
 import changePassword from "./pages/ForgotPage/changePassword";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import CategoryList from "./pages/Category/CategoryList";
-import categoryEdit from "./pages/Category/categoryedit";
-import categoryadd from "./pages/Category/categoryadd";
 import UserManagment from "./pages/UsersList/UserManagement";
 import AvatarList from "./pages/Avatar/AvatarList";
 import AvatarRegistration from "./pages/Avatar/AvatarRegistration";
@@ -97,57 +94,55 @@ import ServiceCenterManagement from "./pages/Services/ServiceCenterManagement";
 
 import AdminList from "./pages/Admin/AdminList";
 
-//Bid
-import Bidpage from "./pages/Bids/Bids";
+import Policy from "./pages/Policy/Policy";
 
-//Token
-import TokenList from "./pages/Token/Tokenlist";
-import TokenView from "./pages/Token/Tokenview";
-// community
-import CommunitycategoryList from "./community/Category/CategoryList";
-import CommunitycategoryEdit from "./community/Category/categoryedit";
-import Communitycategoryadd from "./community/Category/categoryadd";
+// //Bid
+// import Bidpage from "./pages/Bids/Bids";
 
-import CommunityUserList from "./community/Category/CommunityUserList";
+// //Token
+// import TokenList from "./pages/Token/Tokenlist";
+// import TokenView from "./pages/Token/Tokenview";
+// // community
+// import CommunitycategoryList from "./community/Category/CategoryList";
+// import CommunitycategoryEdit from "./community/Category/categoryedit";
+// import Communitycategoryadd from "./community/Category/categoryadd";
 
-// prohibited pages
-import Prohibited from "./pages/Prohibited/prohibitedlist";
-import ProhibitedAdd from "./pages/Prohibited/prohibitedadd";
-import ProhibitedEdit from "./pages/Prohibited/prohibitededit";
-import Noties from "./pages/noties/notieslist";
-import NotiesAdd from "./pages/noties/notiesadd";
-import NotiesEdit from "./pages/noties/notiesedit";
-//cms pagess
-import CmsList from "./pages/Cms/Cmslist";
-import Cmsauction from "./pages/Cms/Cmsauction";
-import AddCMs from "./pages/Cms/Cmsadd";
-import EditCMs from "./pages/Cms/cmsedit";
+// import CommunityUserList from "./community/Category/CommunityUserList";
 
-import Cms from "./pages/cmstermspolicy/cms";
+// // prohibited pages
+// import Prohibited from "./pages/Prohibited/prohibitedlist";
+// import ProhibitedAdd from "./pages/Prohibited/prohibitedadd";
+// import ProhibitedEdit from "./pages/Prohibited/prohibitededit";
+// import Noties from "./pages/noties/notieslist";
+// import NotiesAdd from "./pages/noties/notiesadd";
+// import NotiesEdit from "./pages/noties/notiesedit";
+// //cms pagess
+// import CmsList from "./pages/Cms/Cmslist";
+// import Cmsauction from "./pages/Cms/Cmsauction";
+// import AddCMs from "./pages/Cms/Cmsadd";
+// import EditCMs from "./pages/Cms/cmsedit";
 
-import CmsEdit from "./pages/cmstermspolicy/cmsedit";
-// End community
+// import Cms from "./pages/cmstermspolicy/cms";
 
-import SettingList from "./pages/Settings/Setting";
+// import CmsEdit from "./pages/cmstermspolicy/cmsedit";
+// // End community
+
 import verificationlist from "./pages/request/verificationlist";
 import store from "./store";
 
 import "assets/css/material-dashboard-react.css?v=1.9.0";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import LoginHistory from "../deepliquidity_exchange_server/modals/loginHistory";
 
 import globalStyle from "./style/global.style";
 
 // import action
-import { decodeJwt } from "./actions/jsonWebToken";
-
-import axios from "axios";
 
 const history = createBrowserHistory();
 
 const App = () => {
-  const { isAuth } = store.getState().currentUser;
+  // const { isAuth } = store.getState().currentUser;
 
   return (
     <Provider store={store}>
@@ -431,6 +426,13 @@ const App = () => {
               path="/profile"
               component={MyProfile}
               layout={Admin}
+            />
+
+            <ConditionRoute
+              path="/policy"
+              component={Policy}
+              layout={Admin}
+              type={"private"}
             />
 
             {/*    

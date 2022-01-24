@@ -10,12 +10,12 @@ import Slide from "@material-ui/core/Slide";
 import { addNewQuestion } from "actions/frequentQuestions";
 import { Link } from "react-router-dom";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 export default function RegisterFrequance() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
   const [question, setQuestion] = useState({
     questions: "",
@@ -30,13 +30,13 @@ export default function RegisterFrequance() {
     setQuestion(questionData);
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleAutoClose = () => {
-    setOpen(false);
-  };
+  // const handleAutoClose = () => {
+  //   setOpen(false);
+  // };
 
   const handleSubmit = (e) => {
     addNewQuestion(question).then((res) => {
@@ -50,8 +50,8 @@ export default function RegisterFrequance() {
     });
   };
   return (
-    <div className="mx-3 mx-md-5">
-      <div style={{ fontWeight: "700", fontSize: "40px" }}>공지사항 등록</div>
+    <div className="mx-3 mx-md-5 RegisterFrequance_wrap">
+      <div style={{ fontWeight: "700", fontSize: "40px", color: "#000" }}>자주 묻는 질문 등록</div>
       <div className="row mt-5">
         <div className="col-lg-6">
           <label style={{ color: "#000" }}> 공지사항 제목</label> <br />
@@ -109,10 +109,10 @@ export default function RegisterFrequance() {
 
       <div className="row mt-5">
         <div className="col-lg-6">
-          <FormLabel style={{ color: "#000" }} component="legend">
+          <FormLabel style={{ color: "#000" }} component="legend" className="label_trangle">
             사용여부
           </FormLabel>
-          <RadioGroup>
+          <RadioGroup className="cm_radio_btn">
             <div style={{ display: "flex" }}>
               <FormControlLabel
                 style={{ color: "#000" }}
@@ -136,8 +136,9 @@ export default function RegisterFrequance() {
       </div>
 
       <div className="row mt-5">
-        <div className="col-lg-1">
-          <Button
+        <div className="col">
+          <div className="ne_save_btn_wrap">
+            <Button
             style={{
               backgroundColor: "#5376FF",
               width: "100px",
@@ -150,8 +151,7 @@ export default function RegisterFrequance() {
           >
             저장
           </Button>
-        </div>
-        <div className="col-lg-1">
+
           <Link to="/frequent-list">
             <Button
               href=""
@@ -169,8 +169,8 @@ export default function RegisterFrequance() {
               목록
             </Button>
           </Link>
+          </div>
         </div>
-        <div className="col-lg-10"></div>
       </div>
     </div>
   );
